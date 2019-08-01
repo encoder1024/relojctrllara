@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        relojctrl\Providers\AppServiceProvider::class,
-        relojctrl\Providers\AuthServiceProvider::class,
-        // relojctrl\Providers\BroadcastServiceProvider::class,
-        relojctrl\Providers\EventServiceProvider::class,
-        relojctrl\Providers\RouteServiceProvider::class,
+        relojctrllara\Providers\AppServiceProvider::class,
+        relojctrllara\Providers\AuthServiceProvider::class,
+        // relojctrllara\Providers\BroadcastServiceProvider::class,
+        relojctrllara\Providers\EventServiceProvider::class,
+        relojctrllara\Providers\RouteServiceProvider::class,
 
     ],
 

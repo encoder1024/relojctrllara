@@ -1,6 +1,6 @@
 <?php
 
-namespace relojctrl\Http\Middleware;
+namespace relojctrllara\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 

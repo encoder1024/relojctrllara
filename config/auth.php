@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => relojctrl\User::class,
+            'model' => relojctrllara\User::class,
         ],
 
         // 'users' => [

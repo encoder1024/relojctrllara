@@ -1,6 +1,6 @@
 <?php
 
-namespace relojctrl\Http\Middleware;
+namespace relojctrllara\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

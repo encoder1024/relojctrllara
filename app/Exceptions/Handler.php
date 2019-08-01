@@ -1,6 +1,6 @@
 <?php
 
-namespace relojctrl\Exceptions;
+namespace relojctrllara\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

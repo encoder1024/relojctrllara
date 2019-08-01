@@ -1,8 +1,8 @@
 <?php
 
-namespace relojctrl\Http\Controllers\Auth;
+namespace relojctrllara\Http\Controllers\Auth;
 
-use relojctrl\Http\Controllers\Controller;
+use relojctrllara\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

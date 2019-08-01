@@ -35,7 +35,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => relojctrl\User::class,
+        'model' => relojctrllara\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

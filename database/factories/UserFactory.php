@@ -1,7 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use relojctrl\User;
+use relojctrllara\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 

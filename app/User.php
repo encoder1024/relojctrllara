@@ -1,6 +1,6 @@
 <?php
 
-namespace relojctrl;
+namespace relojctrllara;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

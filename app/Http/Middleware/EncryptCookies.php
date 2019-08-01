@@ -1,6 +1,6 @@
 <?php
 
-namespace relojctrl\Http\Middleware;
+namespace relojctrllara\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 

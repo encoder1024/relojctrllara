@@ -1,6 +1,6 @@
 <?php
 
-namespace relojctrl\Providers;
+namespace relojctrllara\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
