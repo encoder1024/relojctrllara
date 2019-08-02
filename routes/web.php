@@ -11,6 +11,18 @@
 |
 */
 
+use App\Evento;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+// Route::get('/admin', function () {
+//     return view('admin');
+// });
+
+// Assuming we have a Post model
+//Route::model('evento', 'Evento');
+
+// Resourceful routing
+Route::get('/admin', 'EventoController@show');
