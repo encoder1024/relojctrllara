@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 	<head>
@@ -16,12 +16,12 @@
 
 	<body>
 
-	  	<div class="tl" style="text-align: center;">
- 	  		<!--img src="img/logo.png" class="logoMy"-->
-                	<?php
+	  	<div class="tl">
+ 	  		<!--img src="img/logo-sinmargen.jpg" class="logoMy"-->
+                 	<!--?php
 					$PHPvariable = "<script> document.write(schedule) </script>";
 					echo "PHPvariable = ".$PHPvariable;
-					?>
+					?--> 
 	  	</div>
 		<div class="tr">
 			<div class="contenedor">
@@ -93,7 +93,7 @@
 
 		<script src="js/scripts.js"></script>
 		<script src="js/countDown.js"></script>
-		<script src="js/slide.js"></script>
+		<!--script src="js/slide.js"></script-->
 	</body>
 	
 </html>

@@ -1,7 +1,7 @@
 var deadline = 'Jul 29 2019 12:00:00 GMT-0300';
 
 var schedule = [
-    ['Aug 02 2019 12:00:00 GMT-0300', 'Aug 02 2019 12:03:00 GMT-0300'],
+    ['Aug 22 2019 10:18:00 GMT-0300', 'Aug 22 2019 10:20:00 GMT-0300'],
     ['Jul 31 2019 18:39:00 GMT-0300', 'Jul 31 2019 18:43:00 GMT-0300'],
     ['Jul 30 2019 17:12:00 GMT-0300', 'Jul 30 2019 17:17:00 GMT-0300'],
     ['Jul 30 2019 17:18:00 GMT-0300', 'Jul 30 2019 17:23:00 GMT-0300'],
@@ -15,11 +15,11 @@ var clockIsRunning = false;
 
 var contEventos = 1;
 
-// console.log(clockIsRunning);
+//console.log(clockIsRunning);
 
-// clockIsRunning = !!clockIsRunning;
+//clockIsRunning = !!clockIsRunning;
 
-// console.log(clockIsRunning);
+//console.log(clockIsRunning);
 
 // if (clockIsRunning) {
 //     console.log('consola ok ' + clockIsRunning);

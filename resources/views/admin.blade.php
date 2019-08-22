@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>RelojCtrl</title>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/styleAdmin.css" type="text/css" media="all" />
+  <title>RelojCtrl</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="css/styleAdmin.css" type="text/css" media="all" />
 </head>
 <body>
 <!-- Header -->
@@ -53,77 +53,84 @@
           <div class="box-head">
             <h2 class="left">Eventos Actuales</h2>
             <div class="right">
-              <label>buscar eventos</label>
-              <input type="text" class="field small-field" />
-              <input type="submit" class="button" value="search" />
+              <label>Diferencia Horario:</label>
+                <select class="field small-field size2">
+                  <option value="">0 horas</option>
+                  <option value="">-1 hora</option>
+                  <option value="">+1 hora</option>
+                  <option value="">-2 horas</option>
+                  <option value="">+2 horas</option>
+                </select>
+{{--               <input type="text" class="field small-field" />
+              <input type="submit" class="button" value="search" /> --}}
             </div>
           </div>
           <!-- End Box Head -->
           <!-- Table -->
-          <div class="table">
+          <div class="table" id="tabla">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <th width="13"><input type="checkbox" class="checkbox" /></th>
+                <th width="13"><input type="checkbox" class="checkbox" id="bloq-all" onclick="mycheckbox(this, 'toggle')" /></th>
                 <th>Nombre</th>
                 <th>Fecha y Horario</th>
                 <th>Duración</th>
                 <th width="110" class="ac">Content Control</th>
               </tr>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox" name="grupo-cb" /></td>
                 <td><h3>{{$eventos[0]->nombre}}</h3></td>
                 <td>{{$eventos[0]->begin}}</td>
-                <td>{{$duracion}} minutos</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td>{{$duracion[0]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[0]}})">Edit</a></td>
               </tr>
               <tr class="odd">
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Almuerzo</h3></td>
-                <td>12.05.09</td>
-                <td>13:30 / 30</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><input type="checkbox" class="checkbox" name="grupo-cb" /></td>
+                <td><h3>{{$eventos[1]->nombre}}</h3></td>
+                <td>{{$eventos[1]->begin}}</td>
+                <td>{{$duracion[1]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[1]}})">Edit</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Cena</h3></td>
-                <td>12.05.09</td>
-                <td>20:00 / 30</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><h3>{{$eventos[2]->nombre}}</h3></td>
+                <td>{{$eventos[2]->begin}}</td>
+                <td>{{$duracion[2]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[2]}})">Edit</a></td>
               </tr>
               <tr class="odd">
                 <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Break 1</h3></td>
-                <td>12.05.09</td>
-                <td>16:00 / 15</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><h3>{{$eventos[3]->nombre}}</h3></td>
+                <td>{{$eventos[3]->begin}}</td>
+                <td>{{$duracion[3]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[3]}})">Edit</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Break 2</h3></td>
-                <td>12.05.09</td>
-                <td>10:30 / 15</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><h3>{{$eventos[4]->nombre}}</h3></td>
+                <td>{{$eventos[4]->begin}}</td>
+                <td>{{$duracion[4]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[4]}})">Edit</a></td>
               </tr>
               <tr class="odd">
                 <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Evento 1</h3></td>
-                <td>12.05.09</td>
-                <td>09:00 / 45</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><h3>{{$eventos[5]->nombre}}</h3></td>
+                <td>{{$eventos[5]->begin}}</td>
+                <td>{{$duracion[5]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[5]}})">Edit</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Evento 2</h3></td>
-                <td>12.05.09</td>
-                <td>09:00 / 45</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><h3>{{$eventos[6]->nombre}}</h3></td>
+                <td>{{$eventos[6]->begin}}</td>
+                <td>{{$duracion[6]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[6]}})">Edit</a></td>
               </tr>
               <tr class="odd">
                 <td><input type="checkbox" class="checkbox" /></td>
-                <td><h3>Evento 3</h3></td>
-                <td>12.05.09</td>
-                <td>09:00 / 45</td>
-                <td><a href="#" class="ico edit">Edit</a></td>
+                <td><h3>{{$eventos[7]->nombre}}</h3></td>
+                <td>{{$eventos[7]->begin}}</td>
+                <td>{{$duracion[7]}} minutos</td>
+                <td><a href="#editar" class="ico edit" onclick="buscarEvento(this, {{$eventos[7]}})">Edit</a></td>
               </tr>
             </table>
             <!-- Pagging -->
@@ -139,38 +146,94 @@
         <div class="box">
           <!-- Box Head -->
           <div class="box-head">
-            <h2>Add New Article</h2>
+            <h2 id="editar">Editar Evento</h2>
           </div>
           <!-- End Box Head -->
           <form action="#" method="post">
             <!-- Form -->
             <div class="form">
-              <p> <span class="req">max 100 symbols</span>
-                <label>Article Title <span>(Required Field)</span></label>
-                <input type="text" class="field size1" />
+              <p> <span class="req">max 25 caracteres</span>
+                <label>Nombre del Evento</label>
+                <input type="text" class="field size1" id="nombre-evento" />
               </p>
               <p class="inline-field">
-                <label>Date</label>
-                <select class="field size2">
+                <label class="item">Días:</label>
+                <input type="checkbox" class="checkbox" id="dia-lunes" />
+                <label class="field">Lunes</label>
+                <input type="checkbox" class="checkbox" id="dia-martes" />
+                <label class="field">Martes</label>
+                <input type="checkbox" class="checkbox" id="dia-miercoles" />
+                <label class="field">Miércoles</label>
+                <input type="checkbox" class="checkbox" id="dia-jueves"/>
+                <label class="field">Jueves</label>
+                <input type="checkbox" class="checkbox" id="dia-viernes"/>
+                <label class="field">Viernes</label>                                                                
+                <input type="checkbox" class="checkbox" id="dia-sabado"/>
+                <label class="field">Sábado</label>
+                <input type="checkbox" class="checkbox" id="dia-domingo"/>
+                <label class="field">Domingo</label>
+                <label class="item">Hora de inicio:</label>
+                <select class="field size2" id="hora-ini">
+                  <option value="">00</option>
+                  <option value="">01</option>
+                  <option value="">02</option>
+                  <option value="">03</option>
+                  <option value="">04</option>
+                  <option value="">05</option>
+                  <option value="">06</option>
+                  <option value="">07</option>
+                  <option value="">08</option>
+                  <option value="">09</option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                  <option value="">13</option>
+                  <option value="">14</option>
+                  <option value="">15</option>
+                  <option value="">16</option>
+                  <option value="">17</option>
+                  <option value="">18</option>
+                  <option value="">19</option>
+                  <option value="">20</option>
+                  <option value="">21</option>
+                  <option value="">22</option>
                   <option value="">23</option>
                 </select>
-                <select class="field size3">
-                  <option value="">July</option>
+                <label class="field">:</label>
+                <select class="field size2" id="min-ini">
+                  <option value="">00</option>
+                  <option value="">10</option>
+                  <option value="">15</option>
+                  <option value="">20</option>
+                  <option value="">25</option>
+                  <option value="">30</option>
+                  <option value="">35</option>
+                  <option value="">40</option>
+                  <option value="">45</option>
+                  <option value="">50</option>
                 </select>
-                <select class="field size3">
-                  <option value="">2009</option>
+                <label class="item" >Duración (minutos):</label>
+                <select class="field size2" id="dura-eve">
+                  <option value="">10</option>
+                  <option value="">15</option>
+                  <option value="">20</option>
+                  <option value="">25</option>
+                  <option value="">30</option>
+                  <option value="">45</option>
+                  <option value="">60</option>
+                  <option value="">90</option>
+                  <option value="">120</option>
                 </select>
               </p>
-              <p> <span class="req">max 100 symbols</span>
-                <label>Content <span>(Required Field)</span></label>
+              <p> <span class="req">max 144 caracteres</span>
+                <label>Observaciones </label>
                 <textarea class="field size1" rows="10" cols="30"></textarea>
               </p>
             </div>
             <!-- End Form -->
             <!-- Form Buttons -->
             <div class="buttons">
-              <input type="button" class="button" value="preview" />
-              <input type="submit" class="button" value="submit" />
+              <input type="submit" class="button" value="Guardar" />
             </div>
             <!-- End Form Buttons -->
           </form>
@@ -178,41 +241,6 @@
         <!-- End Box -->
       </div>
       <!-- End Content -->
-      <!-- Sidebar -->
-      <div id="sidebar">
-        <!-- Box -->
-        <div class="box">
-          <!-- Box Head -->
-          <div class="box-head">
-            <h2>Management</h2>
-          </div>
-          <!-- End Box Head-->
-          <div class="box-content"> <a href="#" class="add-button"><span>Add new Article</span></a>
-            <div class="cl">&nbsp;</div>
-            <p class="select-all">
-              <input type="checkbox" class="checkbox" />
-              <label>select all</label>
-            </p>
-            <p><a href="#">Delete Selected</a></p>
-            <!-- Sort -->
-            <div class="sort">
-              <label>Sort by</label>
-              <select class="field">
-                <option value="">Title</option>
-              </select>
-              <select class="field">
-                <option value="">Date</option>
-              </select>
-              <select class="field">
-                <option value="">Author</option>
-              </select>
-            </div>
-            <!-- End Sort -->
-          </div>
-        </div>
-        <!-- End Box -->
-      </div>
-      <!-- End Sidebar -->
       <div class="cl">&nbsp;</div>
     </div>
     <!-- Main -->
@@ -221,8 +249,9 @@
 <!-- End Container -->
 <!-- Footer -->
 <div id="footer">
-  <div class="shell"> <span class="left">&copy; 2010 - CompanyName</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
+  <div class="shell"> <span class="left"> 2019 - Montich</span> <span class="right"> Desarrollado por <a href="http://domozoom.com.ar">domozoom.com.ar</a> </span> </div>
 </div>
 <!-- End Footer -->
+<script src="js/admin.js"></script>
 </body>
 </html>

@@ -49,12 +49,24 @@ class EventoController extends Controller
     public function show(Evento $evento)
     {
         $eventos = Evento::all();
+        $duracion = array();
+        $i = 0;
 
-        $dateBegin = $eventos[0]->begin;
-        $dateworkBegin = Carbon::createFromDate($dateBegin);
-        $dateEnd = $eventos[0]->end; //Carbon::now();
-        $dateworkEnd = Carbon::createFromDate($dateEnd);
-        $duracion = $dateworkBegin->diffInMinutes($dateworkEnd);
+        foreach($eventos as $key => $value) {
+
+            $dateBegin = $value->begin;
+            $dateworkBegin = Carbon::createFromDate($dateBegin);
+            $dateEnd = $value->end; //Carbon::now();
+            $dateworkEnd = Carbon::createFromDate($dateEnd);
+            $duracion[$i] = $dateworkBegin->diffInMinutes($dateworkEnd);
+            $i++;
+        }
+
+        // $dateBegin = $eventos[0]->begin;
+        // $dateworkBegin = Carbon::createFromDate($dateBegin);
+        // $dateEnd = $eventos[0]->end; //Carbon::now();
+        // $dateworkEnd = Carbon::createFromDate($dateEnd);
+        // $duracion = $dateworkBegin->diffInMinutes($dateworkEnd);
 
         return View::make('admin', compact('eventos', 'duracion'));
     }

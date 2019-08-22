@@ -67,6 +67,7 @@ body {
   background: gray;
   border: solid #000;
   border-width: 0 10px 10px 0;
+  text-align: center;
 }
 
 .logoMy {
@@ -149,7 +150,7 @@ h1{
     font-size: .5em;
 }
 
-.minutes {
+div span .minutes {
     font-size: 3em;
 }
 
