@@ -22,6 +22,16 @@ class CreateEventosTable extends Migration
             $table->integer('feriados');
             $table->integer('estado');
             $table->integer('habilitado');
+            $table->integer('lunes');
+            $table->integer('martes');
+            $table->integer('miercoles');
+            $table->integer('jueves');
+            $table->integer('viernes');
+            $table->integer('sabado');
+            $table->integer('domingo');
+            $table->integer('bloqueo');
+            $table->time('horaini');
+            $table->integer('duracion');
             $table->timestamps();
         });
     }
