@@ -68,6 +68,7 @@
           <!-- End Box Head -->
           <!-- Table -->
           <div class="table" id="tabla">
+
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <th width="13"><input type="checkbox" class="checkbox" id="bloq-all" onclick="mycheckbox(this, 'toggle')" /></th>
@@ -149,31 +150,32 @@
             <h2 id="editar">Editar Evento</h2>
           </div>
           <!-- End Box Head -->
-          <form action="#" method="post">
+          <form action="/update" method="post">
+            @csrf <!-- {{ csrf_field() }} -->
             <!-- Form -->
             <div class="form">
               <p> <span class="req">max 25 caracteres</span>
                 <label>Nombre del Evento</label>
-                <input type="text" class="field size1" id="nombre-evento" />
+                <input type="text" class="field size1" id="nombre-evento" name="nombre-evento" />
               </p>
               <p class="inline-field">
                 <label class="item">Días:</label>
-                <input type="checkbox" class="checkbox" id="dia-lunes" />
+                <input type="checkbox" class="checkbox" id="dia-lunes" name="dia-lunes" />
                 <label class="field">Lunes</label>
-                <input type="checkbox" class="checkbox" id="dia-martes" />
+                <input type="checkbox" class="checkbox" id="dia-martes" name="dia-martes"/>
                 <label class="field">Martes</label>
-                <input type="checkbox" class="checkbox" id="dia-miercoles" />
+                <input type="checkbox" class="checkbox" id="dia-miercoles" name="dia-miercoles" />
                 <label class="field">Miércoles</label>
-                <input type="checkbox" class="checkbox" id="dia-jueves"/>
+                <input type="checkbox" class="checkbox" id="dia-jueves" name="dia-jueves"/>
                 <label class="field">Jueves</label>
-                <input type="checkbox" class="checkbox" id="dia-viernes"/>
+                <input type="checkbox" class="checkbox" id="dia-viernes" name="dia-viernes"/>
                 <label class="field">Viernes</label>                                                                
-                <input type="checkbox" class="checkbox" id="dia-sabado"/>
+                <input type="checkbox" class="checkbox" id="dia-sabado" name="dia-sabado"/>
                 <label class="field">Sábado</label>
-                <input type="checkbox" class="checkbox" id="dia-domingo"/>
+                <input type="checkbox" class="checkbox" id="dia-domingo" name="dia-domingo"/>
                 <label class="field">Domingo</label>
                 <label class="item">Hora de inicio:</label>
-                <select class="field size2" id="hora-ini">
+                <select class="field size2" id="hora-ini" name="hora-ini">
                   <option value="">00</option>
                   <option value="">01</option>
                   <option value="">02</option>
@@ -200,7 +202,7 @@
                   <option value="">23</option>
                 </select>
                 <label class="field">:</label>
-                <select class="field size2" id="min-ini">
+                <select class="field size2" id="min-ini" name="min-ini">
                   <option value="">00</option>
                   <option value="">10</option>
                   <option value="">15</option>
@@ -213,7 +215,7 @@
                   <option value="">50</option>
                 </select>
                 <label class="item" >Duración (minutos):</label>
-                <select class="field size2" id="dura-eve">
+                <select class="field size2" id="dura-eve" name="dura-eve">
                   <option value="">10</option>
                   <option value="">15</option>
                   <option value="">20</option>
@@ -227,13 +229,14 @@
               </p>
               <p> <span class="req">max 144 caracteres</span>
                 <label>Observaciones </label>
-                <textarea class="field size1" rows="10" cols="30"></textarea>
+                <textarea class="field size1" id="notas" rows="10" cols="30" name="notas"></textarea>
               </p>
             </div>
             <!-- End Form -->
             <!-- Form Buttons -->
             <div class="buttons">
-              <input type="submit" class="button" value="Guardar" />
+              <input type='hidden' value='{{ csrf_field() }}' name='editid'>
+              <input type="submit" class="button" name="submint" value="Guardar" />
             </div>
             <!-- End Form Buttons -->
           </form>

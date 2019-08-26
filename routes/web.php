@@ -26,3 +26,5 @@ Route::get('/', function () {
 
 // Resourceful routing
 Route::get('/admin', 'EventoController@show');
+
+Route::post('/update','EventoController@update');

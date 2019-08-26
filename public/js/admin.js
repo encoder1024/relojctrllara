@@ -252,6 +252,21 @@ buscarEvento = function(link, evento) {
 	}
 
 
-	el.options[indexConvDura].selected = true;			
+	el.options[indexConvDura].selected = true;	
+
+	var ele = document.getElementById('notas');
+
+	console.log(ele);
+
+	//el.setAttribute("value", evento.notas);
+
+	ele.value = evento.notas;
+
+}
+
+guardarEvento = function (link) {
+	console.log(link);
+
+	
 
 }
