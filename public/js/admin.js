@@ -63,9 +63,16 @@ find_parent = function (tag_name, el) {
     return el;
 };
 
+
 buscarEvento = function(link, evento) {
 	console.log(link); 
 	console.log(evento);
+
+	var el = document.getElementById('eventoid');
+
+	el.value = evento.id;
+
+	console.log(el);
 
 	var el = document.getElementById('nombre-evento');
 
