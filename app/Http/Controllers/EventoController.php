@@ -91,7 +91,33 @@ class EventoController extends Controller
      */
     public function update(Request $request, Evento $evento)
     {
-        //
+
+        if($request->isMethod('post')){
+            echo "Estoy recibiendo por post";
+        }
+        
+        echo $request;
+
+        if ($request->input('submit') != null ){
+
+              // Update record
+            if($request->input('editid') !=null ){
+                $name = $request->input('nombre-evento');
+                $lunes = $request->input('dia-lunes');
+                $martes = $request->input('dia-martes');
+
+                if($lunes !='' && $martesl != ''){
+                   $data = array('nombre'=>$name, 'begin'=> $evento.begin, );
+         
+                   // Update
+                   Evento::updateData(0, $data);
+
+                   Session::flash('message','Update successfully.');
+         
+                }
+            }
+        }
+        return redirect()->action('EventoController@show');
     }
 
     /**
