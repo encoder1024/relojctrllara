@@ -17,7 +17,7 @@
 	<body>
 
 	  	<div class="tl">
- 	  		<!--img src="img/logo-sinmargen.jpg" class="logoMy"-->
+ 	  		<img src="img/logo-sinmargen.jpg" class="logoMy">
                  	<!--?php
 					$PHPvariable = "<script> document.write(schedule) </script>";
 					echo "PHPvariable = ".$PHPvariable;
@@ -50,7 +50,7 @@
 		<div class="bl">
 
 			<!-- Slideshow container -->
-			<!--div class="slideshow-container">
+			<div class="slideshow-container">
 
 			  <div class="mySlides fade">
 
@@ -82,7 +82,7 @@
 
 			  </div>
 
-			</div-->
+			</div>
 		</div>
 		<div id="cuadrobr" class="br">
 			<div id="clockdiv">
@@ -93,7 +93,7 @@
 
 		<script src="js/scripts.js"></script>
 		<script src="js/countDown.js"></script>
-		<!--script src="js/slide.js"></script-->
+		<script src="js/slide.js"></script>
 	</body>
 	
 </html>

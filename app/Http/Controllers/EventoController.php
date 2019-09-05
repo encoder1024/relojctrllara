@@ -52,6 +52,8 @@ class EventoController extends Controller
         $duracion = array();
         $i = 0;
 
+        $eventoid = 0;
+
         foreach($eventos as $key => $value) {
 
             $dateBegin = $value->begin;
@@ -68,7 +70,7 @@ class EventoController extends Controller
         // $dateworkEnd = Carbon::createFromDate($dateEnd);
         // $duracion = $dateworkBegin->diffInMinutes($dateworkEnd);
 
-        return View::make('admin', compact('eventos', 'duracion'));
+        return View::make('admin', compact('eventos', 'duracion', 'eventoid'));
     }
 
     /**
@@ -92,31 +94,62 @@ class EventoController extends Controller
     public function update(Request $request, Evento $evento)
     {
 
-        if($request->isMethod('post')){
-            echo "Estoy recibiendo por post";
-        }
         
-        echo $request;
+        $name = $request['nombre-evento'];
+        $lunes = $request['dia-lunes'];
+        if ($lunes != "on"){$lunes = 0;} else {$lunes=1;}
+        $martes = $request['dia-martes'];
+        if ($martes != "on"){$martes = 0;} else {$martes=1;}
+        $miercoles = $request['dia-miercoles'];
+        if ($miercoles != "on"){$miercoles = 0;} else {$miercoles=1;}
+        $jueves = $request['dia-jueves'];
+        if ($jueves != "on"){$jueves = 0;} else {$jueves=1;}
+        $viernes = $request['dia-viernes'];
+        if ($viernes != "on"){$viernes = 0;} else {$viernes=1;}
+        $sabado = $request['dia-sabado'];
+        if ($sabado != "on"){$sabado = 0;} else {$sabado=1;}
+        $domingo = $request['dia-domingo'];
+        if ($domingo != "on"){$domingo = 0;} else {$domingo=1;}
 
-        if ($request->input('submit') != null ){
+        $horaini = $request['hora-ini'];
+        $minini = $request['min-ini'];
+        $seg="00";
 
-              // Update record
-            if($request->input('editid') !=null ){
-                $name = $request->input('nombre-evento');
-                $lunes = $request->input('dia-lunes');
-                $martes = $request->input('dia-martes');
+        $today = Carbon::today();
 
-                if($lunes !='' && $martesl != ''){
-                   $data = array('nombre'=>$name, 'begin'=> $evento.begin, );
-         
-                   // Update
-                   Evento::updateData(0, $data);
+        $dura = Carbon::createFromTimeString("00:".$request['dura-eve'].":00");
 
-                   Session::flash('message','Update successfully.');
-         
-                }
-            }
-        }
+        $begin = $today->addHours($horaini);
+        $begin = $begin->addMinutes($minini);
+
+        $end = $begin->addMinutes($request['dura-eve']); 
+
+        //$end = $today + $end;
+
+        $data = array(
+        'nombre'=>$name,
+        'begin'=>$begin, //"2019-08-22 08:00:00"
+        'end'=>$end, //"2019-08-22 08:00:00"
+        'finde'=>0,
+        'feriados'=>0,
+        'estado'=>1,
+        'habilitado'=>1,
+        'lunes'=>$lunes,
+        'martes'=>$martes,
+        'miercoles'=>$miercoles,
+        'jueves'=>$jueves,
+        'viernes'=>$viernes,
+        'sabado'=>$sabado,
+        'domingo'=>$domingo,
+        'bloqueo'=>0,
+        'horaini'=>"08:50:00", //
+        'duracion'=>$dura->minute, //20
+        'notas'=>$request['notas'],
+        'updated_at'=>now('-3:00')
+        );
+
+        Evento::updateData($request['eventoid'], $data);
+
         return redirect()->action('EventoController@show');
     }
 

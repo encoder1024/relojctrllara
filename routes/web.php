@@ -28,3 +28,5 @@ Route::get('/', function () {
 Route::get('/admin', 'EventoController@show');
 
 Route::post('/update','EventoController@update');
+
+Route::get('/update','EventoController@update');

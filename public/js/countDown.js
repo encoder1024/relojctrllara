@@ -1,7 +1,7 @@
 var deadline = 'Jul 29 2019 12:00:00 GMT-0300';
 
 var schedule = [
-    ['Aug 22 2019 10:18:00 GMT-0300', 'Aug 22 2019 10:20:00 GMT-0300'],
+    ['Sep 05 2019 17:54:00 GMT-0300', 'Sep 05 2019 17:59:00 GMT-0300'],
     ['Jul 31 2019 18:39:00 GMT-0300', 'Jul 31 2019 18:43:00 GMT-0300'],
     ['Jul 30 2019 17:12:00 GMT-0300', 'Jul 30 2019 17:17:00 GMT-0300'],
     ['Jul 30 2019 17:18:00 GMT-0300', 'Jul 30 2019 17:23:00 GMT-0300'],
@@ -14,6 +14,8 @@ var schedule = [
 var clockIsRunning = false;
 
 var contEventos = 1;
+
+console.log('nuevo evento ' + contEventos);
 
 //console.log(clockIsRunning);
 
@@ -59,10 +61,13 @@ function initializeClock(id, endtime){
   		var t = getTimeRemaining(endtime);
 
   		if (t.minutes == 1) {
-			  clock.innerHTML = (t.minutes + 1) + '<br>' + 'min';
+			  clock.innerHTML = '0' + ( t.minutes + 1) + '<br>' + 'min';
         cuadroBr.style.background = "green";
 
-  		} else {
+  		} else if (t.minutes < 10){ 
+          clock.innerHTML = '0' + ( t.minutes + 1) + '<br>' + 'min';
+          cuadroBr.style.background = "green";
+      } else {
   			clock.innerHTML = (t.minutes + 1) + '<br>' + 'min';
         cuadroBr.style.background = "green";
   		}
@@ -106,16 +111,17 @@ function initializeClock(id, endtime){
 
 }
 
-//console.log('Primer control Evento ' + clockIsRunning);
+console.log('Primer control Evento ' + clockIsRunning);
 // iterate over each element in the schedule
 for(var i=0; i<schedule.length; i++){
   var startDate = schedule[i][0];
   var endDate = schedule[i][1];
-
+  console.log(startDate, endDate);
   // put dates in milliseconds for easy comparisons
   var startMs = Date.parse(startDate);
   var endMs = Date.parse(endDate);
   var currentMs = Date.parse(new Date());
+  console.log(startMs, currentMs, endMs);
 
   // if current date is between start and end dates, display clock
   if(endMs > currentMs && currentMs >= startMs ){
