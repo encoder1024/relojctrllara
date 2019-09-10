@@ -16,14 +16,14 @@
 
 	<body>
 
-	  	<div class="tl">
+	  	<div class="tl clear" id="tl">
  	  		<img src="img/logo-sinmargen.jpg" class="logoMy">
                  	<!--?php
 					$PHPvariable = "<script> document.write(schedule) </script>";
 					echo "PHPvariable = ".$PHPvariable;
 					?--> 
 	  	</div>
-		<div class="tr">
+		<div class="tr clear" id="tr">
 			<div class="contenedor">
 				<div class="widget">
 					<div class="fecha">
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="bl">
+		<div class="bl clear" id="bl">
 
 			<!-- Slideshow container -->
 			<div class="slideshow-container">
@@ -84,12 +84,25 @@
 
 			</div>
 		</div>
-		<div id="cuadrobr" class="br">
+		<div id="cuadrobr" class="br clear">
 			<div id="clockdiv">
 			    <span id="minuto" class="minutes">0</span>
 			    <span class="smalltext"> min</span>
 			</div>
 		</div>
+{{-- 		<div class="widget" id="relojGrande">
+			<div class="reloj">
+		      	<p id="horas" class="horas"></p>
+		      	<p>:</p>
+		      	<p id="minutos" class="minutos"></p>
+		      	<p>:</p>
+		      	<div class="cajaSegundos">
+		        	<p id="ampm" class="ampm"></p>
+		        	<p id="segundos" class="segundos"></p>
+		      	</div>
+		    </div>
+		</div> --}}
+			
 
 		<script src="js/scripts.js"></script>
 		<script src="js/countDown.js"></script>

@@ -1,8 +1,8 @@
 var deadline = 'Jul 29 2019 12:00:00 GMT-0300';
 
 var schedule = [
-    ['Sep 05 2019 17:54:00 GMT-0300', 'Sep 05 2019 17:59:00 GMT-0300'],
-    ['Jul 31 2019 18:39:00 GMT-0300', 'Jul 31 2019 18:43:00 GMT-0300'],
+    ['Sep 10 2019 17:45:00 GMT-0300', 'Sep 10 2019 17:59:00 GMT-0300'], 
+    ['Sep 10 2019 18:00:00 GMT-0300', 'Sep 10 2019 18:30:00 GMT-0300'],
     ['Jul 30 2019 17:12:00 GMT-0300', 'Jul 30 2019 17:17:00 GMT-0300'],
     ['Jul 30 2019 17:18:00 GMT-0300', 'Jul 30 2019 17:23:00 GMT-0300'],
     ['Jul 30 2019 17:24:00 GMT-0300', 'Jul 30 2019 17:29:00 GMT-0300'],
@@ -48,7 +48,12 @@ function getTimeRemaining(endtime){
 function initializeClock(id, endtime){
 
   	var clock = document.getElementById(id);
+
+    var cuadroBl = document.getElementById('bl');
     var cuadroBr = document.getElementById('cuadrobr');
+    var cuadroTl = document.getElementById('tl');
+    var cuadroTr = document.getElementById('tr');
+
     var min = document.getElementById('minuto');
     console.log(clock);
     console.log(min);
@@ -67,9 +72,24 @@ function initializeClock(id, endtime){
   		} else if (t.minutes < 10){ 
           clock.innerHTML = '0' + ( t.minutes + 1) + '<br>' + 'min';
           cuadroBr.style.background = "green";
+          cuadroTl.style.display = "none";
+          //cuadroTr.style.display = "none";
+          cuadroBr.style.display = "none";
+          cuadroBl.style.display = "none";
+          cuadroTr.style.position = "relative"; //TODO
+          cuadroTr.style.top = "30%"; //TODO
+          cuadroTr.style.border = "0px solid black";
       } else {
   			clock.innerHTML = (t.minutes + 1) + '<br>' + 'min';
         cuadroBr.style.background = "green";
+        cuadroTl.style.display = "none";
+        //cuadroTr.style.display = "none";
+        cuadroBr.style.display = "none";
+        cuadroBl.style.display = "none";
+        cuadroTr.style.position = "relative"; //TODO
+        cuadroTr.style.top = "30%"; //TODO
+        cuadroTr.style.border = "0px solid black";
+
   		}
   		if(t.total<=0){
     		clearInterval(timeinterval);
@@ -102,6 +122,14 @@ function initializeClock(id, endtime){
                 initializeClock('clockdiv', endDate);
                 console.log('nuevo evento ' + contEventos);
                 contEventos = contEventos + 1;
+                cuadroTl.style.display = "none";
+            } else if(currentMs > (startMs - 15*60*1000)) {
+                cuadroTl.style.display = "none";
+                //cuadroTr.style.display = "none";
+                cuadroBr.style.display = "none";
+                cuadroBl.style.display = "none";
+
+
             }
           }  
       } 
