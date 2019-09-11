@@ -20,7 +20,7 @@ body {
   background: blue;
 }
 .widget {
-  width: 50%;
+  width: 60%;
   height: 10%;
   position: absolute;
   top: 0;
@@ -33,6 +33,7 @@ body {
   display: inline-block;
   line-height: 1em;
 }
+
 .fecha {
   font-family: arial;
   text-align: center;
@@ -42,13 +43,20 @@ body {
   padding: 20px;
   width: 100%;
 }
+
+#nombreEvento {
+  font-size: 6em;
+  width: 100%;
+}
+
 .reloj {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   font-size: 6em;
   text-align: center;
   background: rgba(0,0,0,.5);
+  margin-bottom: 20px;
 }
 .reloj .cajaSegundos {
   display: inline-block;  
