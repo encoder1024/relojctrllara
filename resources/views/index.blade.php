@@ -106,10 +106,15 @@
 		    </div>
 		</div> --}}
 			
-
+		<script type="text/javascript"> //con este script traigo la variable con los eventos de la DB desde PHP(web.php) al scope del JavaScript 
+		    var eventosDb = {!! json_encode($eventosDb->toArray()) !!};
+		    console.log(eventosDb);
+		</script>
+		<script type="text/javascript" src="js/moment.js"></script>
 		<script src="js/scripts.js"></script>
 		<script src="js/countDown.js"></script>
 		<script src="js/slide.js"></script>
+
 	</body>
 	
 </html>

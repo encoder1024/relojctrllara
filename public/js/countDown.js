@@ -1,17 +1,33 @@
-var deadline = 'Jul 29 2019 12:00:00 GMT-0300';
+// var deadline = 'Jul 29 2019 12:00:00 GMT-0300';
+
+
+
+// var inicioEvento0 = moment(eventosDb[0].begin).format('HH:mm:ss');
+// var finEvento0 = moment(eventosDb[0].begin).add(eventosDb[0].duracion, 'minutes').format('HH:mm:ss');
+
+var fechaHoy = moment().format('MMM DD YYYY');
+
+// console.log(fechaHoy, inicioEvento0+" GMT-0300"+"\n", fechaHoy, finEvento0+" GMT-0300");
+
+
 
 var schedule = [
-    ['Sep 11 2019 15:10:00 GMT-0300', 'Sep 11 2019 15:30:00 GMT-0300'], 
-    ['Sep 11 2019 12:30:00 GMT-0300', 'Sep 11 2019 12:45:00 GMT-0300'],
-    ['Sep 11 2019 12:45:00 GMT-0300', 'Sep 11 2019 13:00:00 GMT-0300'],
-    ['Sep 11 2019 13:30:00 GMT-0300', 'Sep 11 2019 14:00:00 GMT-0300'],
-    ['Jul 30 2019 17:24:00 GMT-0300', 'Jul 30 2019 17:29:00 GMT-0300'],
-    ['Jul 30 2019 17:30:00 GMT-0300', 'Jul 30 2019 17:35:00 GMT-0300'],
+    ['Sep 12 2019 14:10:00 GMT-0300', 'Sep 12 2019 14:45:00 GMT-0300'], 
+    ['Sep 12 2019 14:45:00 GMT-0300', 'Sep 12 2019 15:00:00 GMT-0300'],
+    ['Sep 12 2019 15:00:00 GMT-0300', 'Sep 12 2019 15:15:00 GMT-0300'],
+    ['Sep 12 2019 15:27:00 GMT-0300', 'Sep 12 2019 16:15:00 GMT-0300'],
+    ['Sep 12 2019 16:15:00 GMT-0300', 'Jul 12 2019 16:45:00 GMT-0300'],
+    ['Sep 12 2019 16:45:00 GMT-0300', 'Jul 12 2019 17:15:00 GMT-0300'],
     ['Jul 30 2019 17:36:00 GMT-0300', 'Jul 30 2019 17:41:00 GMT-0300'],
     ['Jul 30 2019 17:42:00 GMT-0300', 'Jul 30 2019 17:56:00 GMT-0300']
 ];
 
-var eventos = ['Desayuno Turno 1', 'Desayuno Turno 2', 'Desayuno Turno 3', 'Almuerzo Turno 1', 'Almuerzo Turno 2', 'Almuerzo Turno 3', 'Evento Espacial', 'Evento Especial'];
+// schedule[0][0] = fechaHoy+" "+inicioEvento0+" GMT-0300";
+// schedule[0][1] = fechaHoy+" "+finEvento0+" GMT-0300";
+
+
+
+var eventos = [eventosDb[0].nombre, eventosDb[1].nombre, eventosDb[2].nombre, eventosDb[3].nombre, eventosDb[4].nombre, eventosDb[5].nombre, eventosDb[6].nombre, eventosDb[7].nombre];
 
 var eventoIndex = 0;
 
@@ -55,6 +71,19 @@ slide.style.visibility = "hidden";
 // } else {
 //     console.log('consola nok ' + clockIsRunning);
 // }
+// 
+
+function actualizarSchedule() {
+  for (var i = 0; i <= schedule.length - 1; i++) {
+    var inicioEvento0 = moment(eventosDb[i].begin).format('HH:mm:ss');
+    var finEvento0 = moment(eventosDb[i].begin).add(eventosDb[i].duracion, 'minutes').format('HH:mm:ss');
+    schedule[i][0] = fechaHoy+" "+inicioEvento0+" GMT-0300";
+    schedule[i][1] = fechaHoy+" "+finEvento0+" GMT-0300";
+    console.log(schedule[i][0], schedule[i][1]);
+    inicioDesayuno1 = Date.parse(schedule[0][0]);
+    inicioAlmuerzo1 = Date.parse(schedule[3][0]);
+  }
+}
 
 function getTimeRemaining(endtime){
   var t = Date.parse(endtime) - Date.parse(new Date());
@@ -80,7 +109,7 @@ function initializeClock(id, endtime){
     var cuadroTl = document.getElementById('tl');
     var cuadroTr = document.getElementById('tr');
 
-    var min = document.getElementById('minuto');
+    var min = document.getElementById('minutos');
     console.log(clock);
     console.log(min);
 
@@ -113,119 +142,124 @@ function initializeClock(id, endtime){
   		}
 	  }
 
-	  updateClock(); // run function once at first to avoid delay
+	  if(!clockIsRunning){updateClock();} // run function once at first to avoid delay
+
 	  var timeinterval = setInterval(updateClock,1000);
 
     function checkEvent(){
-      console.log('checkEvent inicio' + clockIsRunning);
-       if (!clockIsRunning) {
-          clearInterval(primerEventoDetected);
-          
-          // iterate over each element in the schedule
-          for(var i=0; i<schedule.length; i++){
-            var startDate = schedule[i][0];
-            var endDate = schedule[i][1];
+        console.log('checkEvent inicio' + clockIsRunning);
+        actualizarSchedule();
+            if (!clockIsRunning) {
+                clearInterval(primerEventoDetected);
+                
+                // iterate over each element in the schedule
+                for(var i=0; i<schedule.length; i++){
+                    var startDate = schedule[i][0];
+                    var endDate = schedule[i][1];
 
-            // put dates in milliseconds for easy comparisons
-            var startMs = Date.parse(startDate);
-            var endMs = Date.parse(endDate);
-            var currentMs = Date.parse(new Date());
+                    // put dates in milliseconds for easy comparisons
+                    var startMs = Date.parse(startDate);
+                    var endMs = Date.parse(endDate);
+                    var currentMs = Date.parse(new Date());
 
-            // if current date is between start and end dates, display clock
-            if(endMs > currentMs && currentMs >= startMs ){
-                clockIsRunning = !clockIsRunning;
-                initializeClock('clockdiv', endDate);
-                console.log('nuevo evento ' + contEventos);
-                contEventos = contEventos + 1;
-                cuadroTl.style.display = "block";
-                cuadroTr.style.display = "block";
-                cuadroBr.style.display = "block";
-                cuadroBl.style.display = "block";
-                //cuadroTr.style.position = "absolute"; //TODO
-                cuadroTr.style.top = "0%"; //TODO
-                cuadroTr.style.left = "30%";
-                cuadroTr.style.bottom = "70%";
-                cuadroTr.style.marginRight = "0%";
-                cuadroTr.style.border = "10px solid black";
-                cuadroTr.style.margin = "auto";
-                horarioPrincipal.style.fontSize = "3em";
-                ampm.style.fontSize = "2rem";
-                segundos.style.fontSize = "2rem";
-                cuadroTr.style.width = "90%";
-                relojPrincipal.style.width = "100%";
-                relojPrincipal.style.maxWidth = "1000px";
-                relojWidget.style.width = "50%";
-                relojFecha.style.fontSize = "2.5em";
-                nombreEvento.style.display = "block";
-                //nombreEvento.value = "eventos[i]";
-                eventoIndex = i;
-                //nombreEvento.setAttribute("value", eventos[i]);
+                    // if current date is between start and end dates, display clock
+                    if(endMs > currentMs && currentMs >= startMs ){
+                        clockIsRunning = !clockIsRunning;
+                        initializeClock('clockdiv', endDate);
+                        console.log('nuevo evento ' + contEventos);
+                        contEventos = contEventos + 1;
+                        cuadroTl.style.display = "block";
+                        cuadroTr.style.display = "block";
+                        cuadroBr.style.display = "block";
+                        cuadroBl.style.display = "block";
+                        //cuadroTr.style.position = "absolute"; //TODO
+                        cuadroTr.style.top = "0%"; //TODO
+                        cuadroTr.style.left = "30%";
+                        cuadroTr.style.bottom = "70%";
+                        cuadroTr.style.marginRight = "0%";
+                        cuadroTr.style.border = "10px solid black";
+                        cuadroTr.style.margin = "auto";
+                        horarioPrincipal.style.fontSize = "4em";
+                        ampm.style.fontSize = "2rem";
+                        segundos.style.fontSize = "2rem";
+                        cuadroTr.style.width = "90%";
+                        relojPrincipal.style.width = "100%";
+                        relojPrincipal.style.maxWidth = "1000px";
+                        relojWidget.style.width = "50%";
+                        relojFecha.style.fontSize = "2.5em";
+                        nombreEvento.style.display = "block";
+                        nombreEvento.style.fontSize = "5em";
+                        //nombreEvento.value = "eventos[i]";
+                        eventoIndex = i;
+                        //nombreEvento.setAttribute("value", eventos[i]);
+                        break;
 
-            } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1) {
-                cuadroTl.style.display = "none";
-                //cuadroTr.style.display = "none";
-                cuadroBr.style.display = "none";
-                cuadroBl.style.display = "none";
-                cuadroTr.style.display = "block"; //TODO
-                cuadroTr.style.top = "20%"; //TODO
-                cuadroTr.style.left = "0%";
-                cuadroTr.style.bottom = "0%";
-                cuadroTr.style.marginRight = "-50%";
-                cuadroTr.style.border = "0px solid black";
-                cuadroTr.style.margin = " 0 auto 0 auto";
-                horarioPrincipal.style.fontSize = "48em";
-                ampm.style.fontSize = ".5em";
-                segundos.style.fontSize = ".5em";
-                cuadroTr.style.width = "100%";
-                relojPrincipal.style.width = "100%";
-                relojPrincipal.style.maxWidth = "3500px";
-                relojWidget.style.width = "100%";
-                relojFecha.style.fontSize = "6em";
-                nombreEvento.style.display = "none";
+                    } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1) {
+                        cuadroTl.style.display = "none";
+                        //cuadroTr.style.display = "none";
+                        cuadroBr.style.display = "none";
+                        cuadroBl.style.display = "none";
+                        cuadroTr.style.display = "block"; //TODO
+                        cuadroTr.style.top = "20%"; //TODO
+                        cuadroTr.style.left = "0%";
+                        cuadroTr.style.bottom = "0%";
+                        cuadroTr.style.marginRight = "-50%";
+                        cuadroTr.style.border = "0px solid black";
+                        cuadroTr.style.margin = " 0 auto 0 auto";
+                        horarioPrincipal.style.fontSize = "48em";
+                        ampm.style.fontSize = ".5em";
+                        segundos.style.fontSize = ".5em";
+                        cuadroTr.style.width = "100%";
+                        relojPrincipal.style.width = "100%";
+                        relojPrincipal.style.maxWidth = "3500px";
+                        relojWidget.style.width = "100%";
+                        relojFecha.style.fontSize = "6em";
+                        nombreEvento.style.display = "none";
+                        break;
 
-            } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1) {
-                cuadroTl.style.display = "none";
-                //cuadroTr.style.display = "none";
-                cuadroBr.style.display = "none";
-                cuadroBl.style.display = "none";
-                cuadroTr.style.display = "block"; //TODO
-                cuadroTr.style.top = "20%"; //TODO
-                cuadroTr.style.left = "0%";
-                cuadroTr.style.bottom = "0%";
-                cuadroTr.style.marginRight = "-50%";
-                cuadroTr.style.border = "0px solid black";
-                cuadroTr.style.margin = " 0 auto 0 auto";
-                horarioPrincipal.style.fontSize = "48em";
-                ampm.style.fontSize = ".5em";
-                segundos.style.fontSize = ".5em";
-                cuadroTr.style.width = "100%";
-                relojPrincipal.style.width = "100%";
-                relojPrincipal.style.maxWidth = "3500px";
-                relojWidget.style.width = "100%";
-                relojFecha.style.fontSize = "6em";
-                nombreEvento.style.display = "none";
-            } else {
-                cuadroTl.style.display = "none";
-                cuadroTr.style.display = "none";
-                cuadroBr.style.display = "none";
-                cuadroBl.style.display = "block";
-                cuadroBl.style.border = "0px solid black";
-            }
+                    } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1) {
+                        cuadroTl.style.display = "none";
+                        //cuadroTr.style.display = "none";
+                        cuadroBr.style.display = "none";
+                        cuadroBl.style.display = "none";
+                        cuadroTr.style.display = "block"; //TODO
+                        cuadroTr.style.top = "20%"; //TODO
+                        cuadroTr.style.left = "0%";
+                        cuadroTr.style.bottom = "0%";
+                        cuadroTr.style.marginRight = "-50%";
+                        cuadroTr.style.border = "0px solid black";
+                        cuadroTr.style.margin = " 0 auto 0 auto";
+                        horarioPrincipal.style.fontSize = "48em";
+                        ampm.style.fontSize = ".5em";
+                        segundos.style.fontSize = ".5em";
+                        cuadroTr.style.width = "100%";
+                        relojPrincipal.style.width = "100%";
+                        relojPrincipal.style.maxWidth = "3500px";
+                        relojWidget.style.width = "100%";
+                        relojFecha.style.fontSize = "6em";
+                        nombreEvento.style.display = "none";
+                        break;
+                    } else {
+                        cuadroTl.style.display = "none";
+                        cuadroTr.style.display = "none";
+                        cuadroBr.style.display = "none";
+                        cuadroBl.style.display = "block";
+                        cuadroBl.style.border = "0px solid black";
+                    }
 
-            console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 15*60*1000)); 
-          }  
-      } 
-    }
-
+                    console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 15*60*1000)); 
+                } //endFor 
+            } //endIf
+    } //endFunction
     var eventinterval = setInterval(checkEvent,1000);
+}//endFunction
 
-}
 
 function primerEvento(){
       console.log('Primer control Evento ' + clockIsRunning);
     // iterate over each element in the schedule
-
-    for(var i=0; i<schedule.length; i++){
+    actualizarSchedule();
+    for(var i=0; i<=schedule.length-1; i++){
 
       //var clock = document.getElementById(id);
 
@@ -252,6 +286,7 @@ function primerEvento(){
           console.log('nuevo evento ' + contEventos);
           contEventos = contEventos + 1;
           eventoIndex = i;
+          break;
           
       } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1) {
           cuadroTl.style.display = "none";
@@ -274,6 +309,7 @@ function primerEvento(){
           relojWidget.style.width = "100%";
           relojFecha.style.fontSize = "6em";
           nombreEvento.style.display = "none";
+          break;
 
       } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1) {
           cuadroTl.style.display = "none";
@@ -296,6 +332,7 @@ function primerEvento(){
           relojWidget.style.width = "100%";
           relojFecha.style.fontSize = "6em";
           nombreEvento.style.display = "none";
+          break;
       } else {
           cuadroTl.style.display = "none";
           cuadroTr.style.display = "none";

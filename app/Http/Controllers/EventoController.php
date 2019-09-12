@@ -60,7 +60,7 @@ class EventoController extends Controller
             $dateworkBegin = Carbon::createFromDate($dateBegin);
             $dateEnd = $value->end; //Carbon::now();
             $dateworkEnd = Carbon::createFromDate($dateEnd);
-            $duracion[$i] = $dateworkBegin->diffInMinutes($dateworkEnd);
+            $duracion[$i] = $value->duracion;
             $i++;
         }
 
@@ -115,14 +115,31 @@ class EventoController extends Controller
         $minini = $request['min-ini'];
         $seg="00";
 
-        $today = Carbon::today();
+        $begin = Carbon::today();
+        $end = Carbon::today();
 
-        $dura = Carbon::createFromTimeString("00:".$request['dura-eve'].":00");
+        if($request['dura-eve'] < 60) {
+            $dura = Carbon::createFromTimeString("00:".$request['dura-eve'].":00");
+        } else if($request['dura-eve'] == 60){
+            $dura = Carbon::createFromTimeString("01:00:00");
+        } else if($request['dura-eve'] == 90){
+            $dura = Carbon::createFromTimeString("01:30:00");
+        } else if($request['dura-eve'] == 120){
+            $dura = Carbon::createFromTimeString("02:00:00");
+        }    
 
-        $begin = $today->addHours($horaini);
-        $begin = $begin->addMinutes($minini);
+        
 
-        $end = $begin->addMinutes($request['dura-eve']); 
+        $begin->addHours($horaini);
+        $begin->addMinutes($minini);
+
+        $end->addHours($horaini);
+        $end->addMinutes($minini);
+        $end->addMinutes($request['dura-eve']);
+
+
+        // $end = $begin->addMinutes($request['dura-eve']); 
+        // $begin = $begin->addMinutes(-$request['dura-eve']);
 
         //$end = $today + $end;
 
@@ -142,8 +159,8 @@ class EventoController extends Controller
         'sabado'=>$sabado,
         'domingo'=>$domingo,
         'bloqueo'=>0,
-        'horaini'=>"08:50:00", //
-        'duracion'=>$dura->minute, //20
+        'horaini'=>"08:50:00", //no lo voy a usar
+        'duracion'=>$begin->diffInMinutes($end), //20
         'notas'=>$request['notas'],
         'updated_at'=>now('-3:00')
         );
