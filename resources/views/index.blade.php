@@ -44,7 +44,7 @@
 				        	<p id="segundos" class="segundos"></p>
 				      	</div>
 				    </div>
-				    <span class="reloj" id="nombreEvento">Nombre del evento respetar</span>
+				    <span class="reloj" id="nombreEvento">Nombre del Evento </span>
 				</div>
 
 			</div>
