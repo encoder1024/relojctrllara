@@ -151,7 +151,7 @@ textarea.size1 { height:180px; }
 .msg a.close{ font-size:0; line-height:0; position:absolute; top:0; right:0; width:34px; height:34px; background:url(images/close.gif); text-indent: -4000px;}
 
 .msg-ok p{ background-color:#fffac2; border:solid 1px #dbd6a2; color:#5e5c40; background-image:url(images/msg-ok.gif); }
-.msg-error p{ background-color:#f3c598; border:solid 1px #e8b084; color:#ba4c32; background-image:url(images/msg-error.gif);  }
+.msg-error p{ background-color:#f3c598; border:solid 1px #e8b084; color:#000; background-image:url(images/msg-error.gif);  }
 
 /*** CSS3 ***/
 .box { -moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0 0 6px #978f6c; -webkit-box-shadow: 0 0 6px #978f6c;}

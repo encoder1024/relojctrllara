@@ -2,12 +2,12 @@
 
 <html lang="en">
 	<head>
-	 	 <meta charset="utf-8">
+	 	<meta charset="utf-8">
 
-	 	 <title>RelojCtrl</title>
-	 	 <meta name="description" content="The HTML5 Herald">
-	  	<meta name="author" content="SitePoint">
-
+ 		<title>RelojCtrl</title>
+	 	<meta name="description" content="The HTML5 Herald">
+  		<meta name="author" content="SitePoint">
+		<!--META HTTP-EQUIV="REFRESH" CONTENT="5;URL=http://relojctrllara.test"-->
 	  	<link rel="stylesheet" href="css/styles.css?">
 
 	  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -86,14 +86,14 @@
 
 			</div>
 		</div>
-		<div id="cuadrobr" class="br clear">
+		<div id="cuadrobr" class="br">
 			<div id="clockdiv">
 			    <span id="minuto" class="minutes">0</span>
 			    <span class="smalltext"> min</span>
 
 			</div>
 		</div>
-{{-- 		<div class="widget" id="relojGrande">
+ 		<!--div class="widget" id="relojGrande">
 			<div class="reloj">
 		      	<p id="horas" class="horas"></p>
 		      	<p>:</p>
@@ -104,7 +104,7 @@
 		        	<p id="segundos" class="segundos"></p>
 		      	</div>
 		    </div>
-		</div> --}}
+		</div-->
 			
 		<script type="text/javascript"> //con este script traigo la variable con los eventos de la DB desde PHP(web.php) al scope del JavaScript 
 		    var eventosDb = {!! json_encode($eventosDb->toArray()) !!};

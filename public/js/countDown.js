@@ -55,8 +55,8 @@ var slide = document.getElementById('slides');
 
 
 //relojPrincipal.style.visibility = "hidden";
-fotoLogo.style.visibility = "hidden";
-slide.style.visibility = "hidden";
+//fotoLogo.style.visibility = "hidden";
+//slide.style.visibility = "hidden";
 
 
 //console.log(clockIsRunning);
@@ -73,7 +73,19 @@ slide.style.visibility = "hidden";
 // }
 // 
 
+function actualizar(){location.reload(true);}
+//Función para actualizar cada 4 segundos(4000 milisegundos)
+// setInterval("actualizar()",10000);
+
 function actualizarSchedule() {
+
+  // var eventosAjax;
+
+  // $.ajax({
+  //   type:"POST",
+  //   data
+  // });
+
   for (var i = 0; i <= schedule.length - 1; i++) {
     var inicioEvento0 = moment(eventosDb[i].begin).format('HH:mm:ss');
     var finEvento0 = moment(eventosDb[i].begin).add(eventosDb[i].duracion, 'minutes').format('HH:mm:ss');
@@ -139,6 +151,7 @@ function initializeClock(id, endtime){
         clock.innerHTML = (t.minutes) + '<br>' + 'min';
         cuadroBr.style.background = "gray";
         clockIsRunning = !clockIsRunning;
+        actualizar();
   		}
 	  }
 
@@ -147,7 +160,7 @@ function initializeClock(id, endtime){
 	  var timeinterval = setInterval(updateClock,1000);
 
     function checkEvent(){
-        console.log('checkEvent inicio' + clockIsRunning);
+        console.log('checkEvent inicio: ' + clockIsRunning);
         actualizarSchedule();
             if (!clockIsRunning) {
                 clearInterval(primerEventoDetected);
@@ -172,17 +185,26 @@ function initializeClock(id, endtime){
                         cuadroTr.style.display = "block";
                         cuadroBr.style.display = "block";
                         cuadroBl.style.display = "block";
+                        cuadroBl.style.border = "solid black";
+                        cuadroBl.style.borderWidth = "0 10px 0 0";
+                        cuadroBl.style.background = "#FCFEFF"; //blue
+                        cuadroBl.style.position = "absolute";
+                        cuadroBl.style.left = "0";
+                        cuadroBl.style.transform = "translateX(0%)";
+                        cuadroBl.style.top = "30%";
+                        cuadroBl.style.transform = "translateY(0%)";  
                         //cuadroTr.style.position = "absolute"; //TODO
                         cuadroTr.style.top = "0%"; //TODO
                         cuadroTr.style.left = "30%";
                         cuadroTr.style.bottom = "70%";
                         cuadroTr.style.marginRight = "0%";
-                        cuadroTr.style.border = "10px solid black";
+                        cuadroTr.style.border = "solid black";
+                        cuadroTr.style.borderWidth = "0 0 10px 0";
                         cuadroTr.style.margin = "auto";
                         horarioPrincipal.style.fontSize = "4em";
                         ampm.style.fontSize = "2rem";
                         segundos.style.fontSize = "2rem";
-                        cuadroTr.style.width = "90%";
+                        cuadroTr.style.width = "70%";
                         relojPrincipal.style.width = "100%";
                         relojPrincipal.style.maxWidth = "1000px";
                         relojWidget.style.width = "50%";
@@ -245,20 +267,28 @@ function initializeClock(id, endtime){
                         cuadroBr.style.display = "none";
                         cuadroBl.style.display = "block";
                         cuadroBl.style.border = "0px solid black";
+                        cuadroBl.style.background = "#FCFEFF"; //blue
+                        cuadroBl.style.position = "relative";
+                        cuadroBl.style.left = "0%";
+                        cuadroBl.style.transform = "translateX(-50%)";
+                        cuadroBl.style.top = "50%";
+                        cuadroBl.style.transform = "translateY(-50%)";    
                     }
 
                     console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 15*60*1000)); 
                 } //endFor 
             } //endIf
-    } //endFunction
+    } //endFunction checkEvent()
     var eventinterval = setInterval(checkEvent,1000);
-}//endFunction
+}//endFunction initializeClock()
 
 
 function primerEvento(){
       console.log('Primer control Evento ' + clockIsRunning);
     // iterate over each element in the schedule
+    //actualizar();
     actualizarSchedule();
+
     for(var i=0; i<=schedule.length-1; i++){
 
       //var clock = document.getElementById(id);
@@ -282,6 +312,18 @@ function primerEvento(){
       // if current date is between start and end dates, display clock
       if(endMs > currentMs && currentMs >= startMs ){
           //clockIsRunning = !clockIsRunning;
+          cuadroTl.style.display = "block";
+          cuadroTr.style.display = "block";
+          cuadroBr.style.display = "block";
+          cuadroBl.style.display = "block";
+          cuadroBl.style.border = "solid black";
+          cuadroBl.style.borderWidth = "0 10px 0 0";
+          cuadroBl.style.background = "#FCFEFF"; //blue
+          cuadroBl.style.position = "absolute";
+          cuadroBl.style.left = "0";
+          cuadroBl.style.transform = "translateX(0%)";
+          cuadroBl.style.top = "30%";
+          cuadroBl.style.transform = "translateY(0%)";  
           initializeClock('clockdiv', endDate);
           console.log('nuevo evento ' + contEventos);
           contEventos = contEventos + 1;
@@ -339,6 +381,12 @@ function primerEvento(){
           cuadroBr.style.display = "none";
           cuadroBl.style.display = "block";
           cuadroBl.style.border = "0px solid black";
+          cuadroBl.style.background = "#FCFEFF"; //blue
+          cuadroBl.style.position = "relative";
+          cuadroBl.style.left = "0%";
+          cuadroBl.style.transform = "translateX(-50%)";
+          cuadroBl.style.top = "50%";
+          cuadroBl.style.transform = "translateY(-50%)";          
 
       }
     }  
