@@ -29,6 +29,17 @@ var schedule = [
 
 var eventos = [eventosDb[0].nombre, eventosDb[1].nombre, eventosDb[2].nombre, eventosDb[3].nombre, eventosDb[4].nombre, eventosDb[5].nombre, eventosDb[6].nombre, eventosDb[7].nombre];
 
+var diaHabilitado = [
+                     [eventosDb[0].lunes, eventosDb[0].martes, eventosDb[0].miercoles, eventosDb[0].jueves, eventosDb[0].viernes, eventosDb[0].sabado, eventosDb[0].domingo],
+                     [eventosDb[1].lunes, eventosDb[1].martes, eventosDb[1].miercoles, eventosDb[1].jueves, eventosDb[1].viernes, eventosDb[1].sabado, eventosDb[1].domingo],
+                     [eventosDb[2].lunes, eventosDb[2].martes, eventosDb[2].miercoles, eventosDb[2].jueves, eventosDb[2].viernes, eventosDb[2].sabado, eventosDb[2].domingo],
+                     [eventosDb[3].lunes, eventosDb[3].martes, eventosDb[3].miercoles, eventosDb[3].jueves, eventosDb[3].viernes, eventosDb[3].sabado, eventosDb[3].domingo],
+                     [eventosDb[4].lunes, eventosDb[4].martes, eventosDb[4].miercoles, eventosDb[4].jueves, eventosDb[4].viernes, eventosDb[4].sabado, eventosDb[4].domingo],
+                     [eventosDb[5].lunes, eventosDb[5].martes, eventosDb[5].miercoles, eventosDb[5].jueves, eventosDb[5].viernes, eventosDb[5].sabado, eventosDb[5].domingo],
+                     [eventosDb[6].lunes, eventosDb[6].martes, eventosDb[6].miercoles, eventosDb[6].jueves, eventosDb[6].viernes, eventosDb[6].sabado, eventosDb[6].domingo],
+                     [eventosDb[7].lunes, eventosDb[7].martes, eventosDb[7].miercoles, eventosDb[7].jueves, eventosDb[7].viernes, eventosDb[7].sabado, eventosDb[7].domingo]
+                    ];
+
 var eventoIndex = 0;
 
 var inicioDesayuno1 = Date.parse(schedule[0][0]);
@@ -175,8 +186,12 @@ function initializeClock(id, endtime){
                     var endMs = Date.parse(endDate);
                     var currentMs = Date.parse(new Date());
 
+                    var now = new Date();
+
+                    var dia = now.getDay()-1;
+
                     // if current date is between start and end dates, display clock
-                    if(endMs > currentMs && currentMs >= startMs ){
+                    if(endMs > currentMs && currentMs >= startMs && diaHabilitado[i][dia] == 1){
                         clockIsRunning = !clockIsRunning;
                         initializeClock('clockdiv', endDate);
                         console.log('nuevo evento ' + contEventos);
@@ -216,7 +231,7 @@ function initializeClock(id, endtime){
                         //nombreEvento.setAttribute("value", eventos[i]);
                         break;
 
-                    } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1) {
+                    } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
                         cuadroTl.style.display = "none";
                         //cuadroTr.style.display = "none";
                         cuadroBr.style.display = "none";
@@ -228,7 +243,7 @@ function initializeClock(id, endtime){
                         cuadroTr.style.marginRight = "-50%";
                         cuadroTr.style.border = "0px solid black";
                         cuadroTr.style.margin = " 0 auto 0 auto";
-                        horarioPrincipal.style.fontSize = "48em";
+                        horarioPrincipal.style.fontSize = "24em";
                         ampm.style.fontSize = ".5em";
                         segundos.style.fontSize = ".5em";
                         cuadroTr.style.width = "100%";
@@ -239,7 +254,7 @@ function initializeClock(id, endtime){
                         nombreEvento.style.display = "none";
                         break;
 
-                    } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1) {
+                    } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
                         cuadroTl.style.display = "none";
                         //cuadroTr.style.display = "none";
                         cuadroBr.style.display = "none";
@@ -251,7 +266,7 @@ function initializeClock(id, endtime){
                         cuadroTr.style.marginRight = "-50%";
                         cuadroTr.style.border = "0px solid black";
                         cuadroTr.style.margin = " 0 auto 0 auto";
-                        horarioPrincipal.style.fontSize = "48em";
+                        horarioPrincipal.style.fontSize = "24em";
                         ampm.style.fontSize = ".5em";
                         segundos.style.fontSize = ".5em";
                         cuadroTr.style.width = "100%";
@@ -309,8 +324,12 @@ function primerEvento(){
       var currentMs = Date.parse(new Date());
       console.log(startMs, currentMs, endMs);
 
+      var now = new Date();
+
+      var dia = now.getDay()-1;
+
       // if current date is between start and end dates, display clock
-      if(endMs > currentMs && currentMs >= startMs ){
+      if(endMs > currentMs && currentMs >= startMs && diaHabilitado[i][dia] == 1){
           //clockIsRunning = !clockIsRunning;
           cuadroTl.style.display = "block";
           cuadroTr.style.display = "block";
@@ -330,7 +349,7 @@ function primerEvento(){
           eventoIndex = i;
           break;
           
-      } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1) {
+      } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
           cuadroTl.style.display = "none";
           //cuadroTr.style.display = "none";
           cuadroBr.style.display = "none";
@@ -342,7 +361,7 @@ function primerEvento(){
           cuadroTr.style.marginRight = "-50%";
           cuadroTr.style.border = "0px solid black";
           cuadroTr.style.margin = " 0 auto 0 auto";
-          horarioPrincipal.style.fontSize = "48em";
+          horarioPrincipal.style.fontSize = "24em";
           ampm.style.fontSize = ".5em";
           segundos.style.fontSize = ".5em";
           cuadroTr.style.width = "100%";
@@ -353,7 +372,7 @@ function primerEvento(){
           nombreEvento.style.display = "none";
           break;
 
-      } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1) {
+      } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
           cuadroTl.style.display = "none";
           //cuadroTr.style.display = "none";
           cuadroBr.style.display = "none";
@@ -365,7 +384,7 @@ function primerEvento(){
           cuadroTr.style.marginRight = "-50%";
           cuadroTr.style.border = "0px solid black";
           cuadroTr.style.margin = " 0 auto 0 auto";
-          horarioPrincipal.style.fontSize = "48em";
+          horarioPrincipal.style.fontSize = "24em";
           ampm.style.fontSize = ".5em";
           segundos.style.fontSize = ".5em";
           cuadroTr.style.width = "100%";
@@ -395,5 +414,28 @@ function primerEvento(){
 
 var primerEventoDetected = setInterval(primerEvento,1000);
 
+/*Esta función será la encargada de actualizar la pagina cada 24 hs por lo menos, entre la 1 am y las 2 am*/
+
+function actualizarCadaDia(){
+    var inicioVentana = moment().startOf('day').add(1, 'h');
+
+    var finaleVentana = moment().startOf('day').add(2, 'h');
+
+    var now = moment();
+
+    console.log(inicioVentana, finaleVentana, now);
+
+    if(now >= inicioVentana && now < finaleVentana ){
+      actualizar();
+      console.log("estamos en horario de actualización");
+    } else {
+      console.log("no estamos en horario de actualización");
+    }
+
+}
+
+actualizarCadaDia();
+
+var actCadaDiaLaWeb = setInterval(actualizarCadaDia,60*60*1000);
 
 

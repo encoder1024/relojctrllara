@@ -237,7 +237,7 @@
             <div class="buttons">
               <input type='hidden' value='1' name='editid'>
               <input type="hidden" value='{{$eventoid}}' name="eventoid" id="eventoid">
-              <input type="submit" class="button" name="submint" value="Guardar" />
+              <input type="submit" class="button" name="submint" value="Guardar" /> 
             </div>
             <!-- End Form Buttons -->
           </form>

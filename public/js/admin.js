@@ -135,6 +135,7 @@ buscarEvento = function(link, evento) {
         var checkbox = document.querySelector("input[id=dia-domingo]");
 		checkbox.checked = false;		
 	}
+	
 
 	var el = document.getElementById('hora-ini');
 
