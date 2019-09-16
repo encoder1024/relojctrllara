@@ -38,7 +38,7 @@
     <!-- End Message OK -->
     <!-- Message Error -->
     <div class="msg msg-error">
-      <p><strong>You must select a file to upload first!</strong></p>
+      <p><strong>Debes actualizar la pagina del reloj luego de cambiar algo en alguno de los eventos!</strong></p>
       <a href="#" class="close">close</a> </div>
     <!-- End Message Error -->
     <br />
@@ -237,7 +237,7 @@
             <div class="buttons">
               <input type='hidden' value='1' name='editid'>
               <input type="hidden" value='{{$eventoid}}' name="eventoid" id="eventoid">
-              <input type="submit" class="button" name="submint" value="Guardar" />
+              <input type="submit" class="button" name="submint" value="Guardar" /> 
             </div>
             <!-- End Form Buttons -->
           </form>

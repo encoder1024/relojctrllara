@@ -11,10 +11,13 @@
 |
 */
 
-use App\Evento;
+use relojctrllara\Evento;
 
 Route::get('/', function () {
-    return view('index');
+	$eventosDb = Evento::all();
+
+	return View::make('index', compact('eventosDb'));
+    //return view('index');
 });
 
 // Route::get('/admin', function () {
