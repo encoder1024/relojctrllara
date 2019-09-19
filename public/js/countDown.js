@@ -224,6 +224,7 @@ function initializeClock(id, endtime){
                         relojPrincipal.style.maxWidth = "1000px";
                         relojWidget.style.width = "90%";
                         relojFecha.style.fontSize = "2.5em";
+                        relojFecha.style.width = "100%";
                         nombreEvento.style.display = "block";
                         nombreEvento.style.fontSize = "5em";
                         //nombreEvento.value = "eventos[i]";
@@ -251,6 +252,7 @@ function initializeClock(id, endtime){
                         relojPrincipal.style.maxWidth = "3500px";
                         relojWidget.style.width = "100%";
                         relojFecha.style.fontSize = "6em";
+                        relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
                         break;
 
@@ -274,6 +276,7 @@ function initializeClock(id, endtime){
                         relojPrincipal.style.maxWidth = "3500px";
                         relojWidget.style.width = "100%";
                         relojFecha.style.fontSize = "6em";
+                        relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
                         break;
                     } else {
@@ -288,6 +291,8 @@ function initializeClock(id, endtime){
                         cuadroBl.style.transform = "translateX(-50%)";
                         cuadroBl.style.top = "50%";
                         cuadroBl.style.transform = "translateY(-50%)";
+                        cuadroBl.style.width = "90%";
+
                     }
 
                     console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 15*60*1000)); 
