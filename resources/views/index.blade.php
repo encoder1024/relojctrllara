@@ -17,7 +17,7 @@
 	<body>
 
 	  	<div class="tl clear" id="tl">
- 	  		<img src="img/logo-sinmargen.jpg" class="logoMy" id="fotoLogo">
+ 	  		<!--img src="img/logo-sinmargen.jpg" class="logoMy" id="fotoLogo"-->
                  	<!--?php
 					$PHPvariable = "<script> document.write(schedule) </script>";
 					echo "PHPvariable = ".$PHPvariable;
@@ -52,39 +52,39 @@
 		<div class="bl clear" id="bl">
 
 			<!-- Slideshow container -->
-			<div class="slideshow-container" id="slides">
+			<!--div class="slideshow-container" id="slides">
 
 			  <div class="mySlides fade">
 
-			    <img src="img/img1.png" style="width:100%; margin-top: 2%;">
+			    <img src="img/slide00.jpg" style="width:100%; margin-top: 2%;">
 
 			  </div>
 
 			  <div class="mySlides fade">
 
-			    <img src="img/img4.png" style="width:100%; margin-top: 2%;">
+			    <img src="img/slide01.jpg" style="width:100%; margin-top: 2%;">
 
 			  </div>
 
 			  <div class="mySlides fade">
 
-			    <img src="img/img3.png" style="width:100%; margin-top: 2%;">
+			    <img src="img/slide02.jpg" style="width:100%; margin-top: 2%;">
 
 			  </div>
 
   			  <div class="mySlides fade">
 
-			    <img src="img/paisaje01.jpg" style="width:100%; margin-top: 2%;">
+			    <img src="img/slide03.jpg" style="width:100%; margin-top: 2%;">
 
 			  </div>
 
   			  <div class="mySlides fade">
 
-			    <img src="img/paisaje02.jpg" style="width:100%; margin-top: 2%;">
+			    <img src="img/slide04.jpg" style="width:100%; margin-top: 2%;">
 
 			  </div>
 
-			</div>
+			</div-->
 		</div>
 		<div id="cuadrobr" class="br">
 			<div id="clockdiv">

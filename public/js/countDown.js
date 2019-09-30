@@ -207,7 +207,7 @@ function initializeClock(id, endtime){
                         cuadroBl.style.left = "0";
                         cuadroBl.style.transform = "translateX(0%)";
                         cuadroBl.style.top = "30%";
-                        cuadroBl.style.transform = "translateY(0%)";  
+                        cuadroBl.style.transform = "translateY(0%)";
                         //cuadroTr.style.position = "absolute"; //TODO
                         cuadroTr.style.top = "0%"; //TODO
                         cuadroTr.style.left = "30%";
@@ -224,6 +224,7 @@ function initializeClock(id, endtime){
                         relojPrincipal.style.maxWidth = "1000px";
                         relojWidget.style.width = "90%";
                         relojFecha.style.fontSize = "2.5em";
+                        relojFecha.style.width = "100%";
                         nombreEvento.style.display = "block";
                         nombreEvento.style.fontSize = "5em";
                         //nombreEvento.value = "eventos[i]";
@@ -251,6 +252,7 @@ function initializeClock(id, endtime){
                         relojPrincipal.style.maxWidth = "3500px";
                         relojWidget.style.width = "100%";
                         relojFecha.style.fontSize = "6em";
+                        relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
                         break;
 
@@ -274,6 +276,7 @@ function initializeClock(id, endtime){
                         relojPrincipal.style.maxWidth = "3500px";
                         relojWidget.style.width = "100%";
                         relojFecha.style.fontSize = "6em";
+                        relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
                         break;
                     } else {
@@ -287,7 +290,9 @@ function initializeClock(id, endtime){
                         cuadroBl.style.left = "0%";
                         cuadroBl.style.transform = "translateX(-50%)";
                         cuadroBl.style.top = "50%";
-                        cuadroBl.style.transform = "translateY(-50%)";    
+                        cuadroBl.style.transform = "translateY(-50%)";
+                        cuadroBl.style.width = "90%";
+
                     }
 
                     console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 15*60*1000)); 
@@ -342,7 +347,7 @@ function primerEvento(){
           cuadroBl.style.left = "0";
           cuadroBl.style.transform = "translateX(0%)";
           cuadroBl.style.top = "30%";
-          cuadroBl.style.transform = "translateY(0%)";  
+          cuadroBl.style.transform = "translateY(0%)";
           initializeClock('clockdiv', endDate);
           console.log('nuevo evento ' + contEventos);
           contEventos = contEventos + 1;
@@ -406,7 +411,6 @@ function primerEvento(){
           cuadroBl.style.transform = "translateX(-50%)";
           cuadroBl.style.top = "50%";
           cuadroBl.style.transform = "translateY(-50%)";          
-
       }
     }  
 
