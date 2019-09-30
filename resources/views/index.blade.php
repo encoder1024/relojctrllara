@@ -17,7 +17,7 @@
 	<body>
 
 	  	<div class="tl clear" id="tl">
- 	  		<!--img src="img/logo-sinmargen.jpg" class="logoMy" id="fotoLogo"-->
+ 	  		<img src="img/logo-sinmargen.jpg" class="logoMy" id="fotoLogo">
                  	<!--?php
 					$PHPvariable = "<script> document.write(schedule) </script>";
 					echo "PHPvariable = ".$PHPvariable;
@@ -40,7 +40,7 @@
 				      	<p id="minutos" class="minutos"></p>
 				      	<p>:</p>
 				      	<div class="cajaSegundos" id="cajaSegundos">
-				        	<p id="ampm" class="ampm"></p>
+				        	<!--span id="ampm" class="ampm"></span-->
 				        	<p id="segundos" class="segundos"></p>
 				      	</div>
 				    </div>
@@ -50,9 +50,10 @@
 			</div>
 		</div>
 		<div class="bl clear" id="bl">
+			<div class="zocaloProduccion" id="zocaloProduccion"> En Produción</div>
 
 			<!-- Slideshow container -->
-			<!--div class="slideshow-container" id="slides">
+			<div class="slideshow-container" id="slides">
 
 			  <div class="mySlides fade">
 
@@ -84,9 +85,9 @@
 
 			  </div>
 
-			</div-->
+			</div>
 		</div>
-		<div id="cuadrobr" class="br">
+		<div class="br" id="cuadrobr" >
 			<div id="clockdiv">
 			    <span id="minuto" class="minutes">0</span>
 			    <span class="smalltext"> min</span>

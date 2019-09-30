@@ -55,7 +55,7 @@ var relojPrincipal = document.getElementById('relojPrincipal');
 var relojWidget = document.getElementById('widget');
 var horarioPrincipal = document.getElementById('horarioPrincipal');
 var cajaSegundos = document.getElementById('cajaSegundos');
-var ampm = document.getElementById('ampm');
+//var ampm = document.getElementById('ampm');
 var segundos = document.getElementById('segundos');
 var relojFecha = document.getElementById('relojFecha');
 var nombreEvento = document.getElementById('nombreEvento');
@@ -63,7 +63,11 @@ var nombreEvento = document.getElementById('nombreEvento');
 var fotoLogo = document.getElementById('fotoLogo');
 var slide = document.getElementById('slides');
 
+var clockdiv = document.getElementById('clockdiv');
 
+var zocaloProduccion = document.getElementById('zocaloProduccion');
+
+//ampm.style.visibility = "hidden";
 
 //relojPrincipal.style.visibility = "hidden";
 //fotoLogo.style.visibility = "hidden";
@@ -150,17 +154,17 @@ function initializeClock(id, endtime){
 
       if (t.minutes < 9){ 
           clock.innerHTML = '0' + ( t.minutes + 1) + '<br>' + 'min';
-          cuadroBr.style.background = "green";
+          //cuadroBr.style.background = "green";
           nombreEvento.innerHTML = eventos[eventoIndex];
       } else {
   			clock.innerHTML = (t.minutes + 1) + '<br>' + 'min';
-        cuadroBr.style.background = "green";
+        //cuadroBr.style.background = "green";
         nombreEvento.innerHTML = eventos[eventoIndex];
   		}
   		if(t.total<=0){
     		clearInterval(timeinterval);
         clock.innerHTML = (t.minutes) + '<br>' + 'min';
-        cuadroBr.style.background = "gray";
+        //cuadroBr.style.background = "gray";
         clockIsRunning = !clockIsRunning;
         actualizar();
   		}
@@ -198,10 +202,10 @@ function initializeClock(id, endtime){
                         contEventos = contEventos + 1;
                         cuadroTl.style.display = "block";
                         cuadroTr.style.display = "block";
-                        cuadroBr.style.display = "block";
+                        cuadroBr.style.display = "inline-block";
                         cuadroBl.style.display = "block";
-                        cuadroBl.style.border = "solid #0094C9";
-                        cuadroBl.style.borderWidth = "0 10px 0 0";
+                        // cuadroBl.style.border = "solid #0094C9";
+                        // cuadroBl.style.borderWidth = "0 10px 0 0";
                         cuadroBl.style.background = "#FCFEFF"; //blue
                         cuadroBl.style.position = "absolute";
                         cuadroBl.style.left = "0";
@@ -213,12 +217,12 @@ function initializeClock(id, endtime){
                         cuadroTr.style.left = "30%";
                         cuadroTr.style.bottom = "70%";
                         cuadroTr.style.marginRight = "0%";
-                        cuadroTr.style.border = "solid #0094C9";
-                        cuadroTr.style.borderWidth = "0 0 10px 0";
+                        // cuadroTr.style.border = "solid #0094C9";
+                        // cuadroTr.style.borderWidth = "0 0 10px 0";
                         cuadroTr.style.margin = "auto";
                         horarioPrincipal.style.fontSize = "6em";
-                        ampm.style.fontSize = "1.5rem";
-                        segundos.style.fontSize = "1.5rem";
+                        // ampm.style.fontSize = "1.5rem";
+                        segundos.style.fontSize = "3.5rem";
                         cuadroTr.style.width = "70%";
                         relojPrincipal.style.width = "100%";
                         relojPrincipal.style.maxWidth = "1000px";
@@ -232,7 +236,7 @@ function initializeClock(id, endtime){
                         //nombreEvento.setAttribute("value", eventos[i]);
                         break;
 
-                    } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
+                    } else if(currentMs > (inicioDesayuno1 - 5*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
                         cuadroTl.style.display = "none";
                         //cuadroTr.style.display = "none";
                         cuadroBr.style.display = "none";
@@ -245,7 +249,7 @@ function initializeClock(id, endtime){
                         cuadroTr.style.border = "0px solid black";
                         cuadroTr.style.margin = " 0 auto 0 auto";
                         horarioPrincipal.style.fontSize = "24em";
-                        ampm.style.fontSize = ".5em";
+                        // ampm.style.fontSize = ".5em";
                         segundos.style.fontSize = ".5em";
                         cuadroTr.style.width = "100%";
                         relojPrincipal.style.width = "100%";
@@ -254,9 +258,11 @@ function initializeClock(id, endtime){
                         relojFecha.style.fontSize = "6em";
                         relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
+                        zocaloProduccion.style.display = "block";
+                        zocaloProduccion.style.fontSize = "6em";
                         break;
 
-                    } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
+                    } else if(currentMs > (inicioAlmuerzo1 - 5*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
                         cuadroTl.style.display = "none";
                         //cuadroTr.style.display = "none";
                         cuadroBr.style.display = "none";
@@ -269,7 +275,7 @@ function initializeClock(id, endtime){
                         cuadroTr.style.border = "0px solid black";
                         cuadroTr.style.margin = " 0 auto 0 auto";
                         horarioPrincipal.style.fontSize = "24em";
-                        ampm.style.fontSize = ".5em";
+                        // ampm.style.fontSize = ".5em";
                         segundos.style.fontSize = ".5em";
                         cuadroTr.style.width = "100%";
                         relojPrincipal.style.width = "100%";
@@ -278,6 +284,8 @@ function initializeClock(id, endtime){
                         relojFecha.style.fontSize = "6em";
                         relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
+                        zocaloProduccion.style.display = "block";
+                        zocaloProduccion.style.fontSize = "6em";
                         break;
                     } else {
                         cuadroTl.style.display = "none";
@@ -295,7 +303,7 @@ function initializeClock(id, endtime){
 
                     }
 
-                    console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 15*60*1000)); 
+                    console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 5*60*1000)); 
                 } //endFor 
             } //endIf
     } //endFunction checkEvent()
@@ -340,21 +348,21 @@ function primerEvento(){
           cuadroTr.style.display = "block";
           cuadroBr.style.display = "block";
           cuadroBl.style.display = "block";
-          cuadroBl.style.border = "solid #0094C9";
-          cuadroBl.style.borderWidth = "0 10px 0 0";
+          // cuadroBl.style.border = "solid #0094C9";
+          // cuadroBl.style.borderWidth = "0 10px 0 0";
           cuadroBl.style.background = "#FCFEFF"; //blue
           cuadroBl.style.position = "absolute";
-          cuadroBl.style.left = "0";
-          cuadroBl.style.transform = "translateX(0%)";
+          cuadroBl.style.left = "initial";
+          cuadroBl.style.transform = "initial";
           cuadroBl.style.top = "30%";
-          cuadroBl.style.transform = "translateY(0%)";
+          cuadroBl.style.transform = "initial";
           initializeClock('clockdiv', endDate);
           console.log('nuevo evento ' + contEventos);
           contEventos = contEventos + 1;
           eventoIndex = i;
           break;
           
-      } else if(currentMs > (inicioDesayuno1 - 15*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
+      } else if(currentMs > (inicioDesayuno1 - 5*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
           cuadroTl.style.display = "none";
           //cuadroTr.style.display = "none";
           cuadroBr.style.display = "none";
@@ -367,17 +375,19 @@ function primerEvento(){
           cuadroTr.style.border = "0px solid black";
           cuadroTr.style.margin = " 0 auto 0 auto";
           horarioPrincipal.style.fontSize = "24em";
-          ampm.style.fontSize = ".5em";
-          segundos.style.fontSize = ".5em";
+          // ampm.style.fontSize = ".5em";
+          segundos.style.fontSize = "6em";
           cuadroTr.style.width = "100%";
           relojPrincipal.style.width = "100%";
           relojPrincipal.style.maxWidth = "3500px";
           relojWidget.style.width = "100%";
           relojFecha.style.fontSize = "6em";
           nombreEvento.style.display = "none";
+          zocaloProduccion.style.display = "block";
+          zocaloProduccion.style.fontSize = "6em";          
           break;
 
-      } else if(currentMs > (inicioAlmuerzo1 - 15*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
+      } else if(currentMs > (inicioAlmuerzo1 - 5*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
           cuadroTl.style.display = "none";
           //cuadroTr.style.display = "none";
           cuadroBr.style.display = "none";
@@ -390,7 +400,7 @@ function primerEvento(){
           cuadroTr.style.border = "0px solid black";
           cuadroTr.style.margin = " 0 auto 0 auto";
           horarioPrincipal.style.fontSize = "24em";
-          ampm.style.fontSize = ".5em";
+          // ampm.style.fontSize = ".5em";
           segundos.style.fontSize = ".5em";
           cuadroTr.style.width = "100%";
           relojPrincipal.style.width = "100%";
@@ -398,6 +408,8 @@ function primerEvento(){
           relojWidget.style.width = "100%";
           relojFecha.style.fontSize = "6em";
           nombreEvento.style.display = "none";
+          zocaloProduccion.style.display = "block";
+          zocaloProduccion.style.fontSize = "6em";
           break;
       } else {
           cuadroTl.style.display = "none";

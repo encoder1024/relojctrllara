@@ -26,7 +26,7 @@ $(function(){
     $pMes.text(meses[mes]);
     $pAnio.text(anio);
     if(hora>=12){
-      hora = hora - 12;
+      //hora = hora - 12; voy a convertir en reloj de 24 hs sancando el -12 cuando hora>=12 y comentando esta linea y en el HTML sanco el "p" que contiene el texto AM/PM
       ampm = "PM";
     }else{
       ampm = "AM";
