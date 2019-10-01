@@ -12,6 +12,52 @@ body {
   font-size: 62.5%;
   color: #fff;
 }
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.tl {
+  width: 30%;
+  background: #FCFEFF;
+/*  border: solid #0094C9;
+  border-width: 0 10px 10px 0;*/
+  text-align: center;
+  display: none;
+}
+
+.tr {
+  width: 70%;
+  background: #FCFEFF;
+/*  border: solid #0094C9;
+  border-width: 0 0 10px 0;*/
+  display: none;
+}
+
+.bl {
+  width: 70%;
+  background: #FCFEFF;
+/*  border: solid #0094C9;
+  border-width: 0 10px 0 0;*/
+  display: none;
+}
+
+.br {
+  width: 30%;
+  background: #FCFEFF;
+  font-size: 62.5%;
+  display: none;
+}
+
+.logoMy {
+  margin: 1% auto 5% auto;
+  max-width:100%;
+  max-height:95%;
+}
+
 .contenedor {
   width: 90%;
   height: 10%;
@@ -89,61 +135,6 @@ body {
 }
 
 
-.tl {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 70%;
-  bottom: 70%;
-  background: #FCFEFF;
-/*  border: solid #0094C9;
-  border-width: 0 10px 10px 0;*/
-  text-align: center;
-  display: none;
-}
-
-.logoMy {
-  margin: 1% auto 5% auto;
-  max-width:100%;
-  max-height:95%;
-}
-
-.tr {
-  position: absolute;
-  top: 0;
-  left: 30%;
-  right: 0;
-  bottom: 70%;
-  background: #FCFEFF;
-/*  border: solid #0094C9;
-  border-width: 0 0 10px 0;*/
-  display: none;
-}
-
-.bl {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  right: 20%;
-  bottom: 0;
-  background: #FCFEFF;
-/*  border: solid #0094C9;
-  border-width: 0 10px 0 0;*/
-  display: none;
-}
-
-.br {
-  position: absolute;
-  top: 30%;
-  left: 80%;
-  right: 0;
-  bottom: 0;
-  background: #FCFEFF;
-  font-size: 62.5%;
-  display: none;
-
-}
-
 /*body{
     text-align: center;
     background: #00ECB9;
@@ -174,6 +165,7 @@ h1{
     text-align: center;
     font-size: 30em;
     padding-top: .8em;
+    align-self: center;
 }
 
 /*#clockdiv > div{
@@ -202,18 +194,13 @@ h1{
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 70%;
-  position: relative;
-  top: 0%;
-  left: 0%;
-  /*margin: auto;*/
+  width: 100%;
 }
 
 /* Hide the images by default */
 .mySlides {
-  padding-top: 20px;
+  width: 100%;
   display: none;
-  height: 90%;
   /*box-shadow: 2px 2px 10px #666;*/
 }
 

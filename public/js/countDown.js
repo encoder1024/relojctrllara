@@ -207,19 +207,7 @@ function initializeClock(id, endtime){
                         // cuadroBl.style.border = "solid #0094C9";
                         // cuadroBl.style.borderWidth = "0 10px 0 0";
                         cuadroBl.style.background = "#FCFEFF"; //blue
-                        cuadroBl.style.position = "absolute";
-                        cuadroBl.style.left = "0";
-                        cuadroBl.style.transform = "translateX(0%)";
-                        cuadroBl.style.top = "30%";
-                        cuadroBl.style.transform = "translateY(0%)";
-                        //cuadroTr.style.position = "absolute"; //TODO
-                        cuadroTr.style.top = "0%"; //TODO
-                        cuadroTr.style.left = "30%";
-                        cuadroTr.style.bottom = "70%";
-                        cuadroTr.style.marginRight = "0%";
-                        // cuadroTr.style.border = "solid #0094C9";
-                        // cuadroTr.style.borderWidth = "0 0 10px 0";
-                        cuadroTr.style.margin = "auto";
+                        cuadroBl.style.width = "70%";
                         horarioPrincipal.style.fontSize = "6em";
                         // ampm.style.fontSize = "1.5rem";
                         segundos.style.fontSize = "3.5rem";
@@ -234,6 +222,7 @@ function initializeClock(id, endtime){
                         //nombreEvento.value = "eventos[i]";
                         eventoIndex = i;
                         //nombreEvento.setAttribute("value", eventos[i]);
+                        zocaloProduccion.style.display = "none";
                         break;
 
                     } else if(currentMs > (inicioDesayuno1 - 5*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
@@ -242,15 +231,11 @@ function initializeClock(id, endtime){
                         cuadroBr.style.display = "none";
                         cuadroBl.style.display = "none";
                         cuadroTr.style.display = "block"; //TODO
-                        cuadroTr.style.top = "20%"; //TODO
-                        cuadroTr.style.left = "0%";
-                        cuadroTr.style.bottom = "0%";
-                        cuadroTr.style.marginRight = "-50%";
                         cuadroTr.style.border = "0px solid black";
                         cuadroTr.style.margin = " 0 auto 0 auto";
                         horarioPrincipal.style.fontSize = "24em";
                         // ampm.style.fontSize = ".5em";
-                        segundos.style.fontSize = ".5em";
+                        segundos.style.fontSize = "3em";
                         cuadroTr.style.width = "100%";
                         relojPrincipal.style.width = "100%";
                         relojPrincipal.style.maxWidth = "3500px";
@@ -258,8 +243,6 @@ function initializeClock(id, endtime){
                         relojFecha.style.fontSize = "6em";
                         relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
-                        zocaloProduccion.style.display = "block";
-                        zocaloProduccion.style.fontSize = "6em";
                         break;
 
                     } else if(currentMs > (inicioAlmuerzo1 - 5*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
@@ -268,12 +251,7 @@ function initializeClock(id, endtime){
                         cuadroBr.style.display = "none";
                         cuadroBl.style.display = "none";
                         cuadroTr.style.display = "block"; //TODO
-                        cuadroTr.style.top = "20%"; //TODO
-                        cuadroTr.style.left = "0%";
-                        cuadroTr.style.bottom = "0%";
-                        cuadroTr.style.marginRight = "-50%";
                         cuadroTr.style.border = "0px solid black";
-                        cuadroTr.style.margin = " 0 auto 0 auto";
                         horarioPrincipal.style.fontSize = "24em";
                         // ampm.style.fontSize = ".5em";
                         segundos.style.fontSize = ".5em";
@@ -284,8 +262,6 @@ function initializeClock(id, endtime){
                         relojFecha.style.fontSize = "6em";
                         relojFecha.style.width = "90%";
                         nombreEvento.style.display = "none";
-                        zocaloProduccion.style.display = "block";
-                        zocaloProduccion.style.fontSize = "6em";
                         break;
                     } else {
                         cuadroTl.style.display = "none";
@@ -294,13 +270,9 @@ function initializeClock(id, endtime){
                         cuadroBl.style.display = "block";
                         cuadroBl.style.border = "0px solid black";
                         cuadroBl.style.background = "#FCFEFF"; //blue
-                        cuadroBl.style.position = "relative";
-                        cuadroBl.style.left = "0%";
-                        cuadroBl.style.transform = "translateX(-50%)";
-                        cuadroBl.style.top = "50%";
-                        cuadroBl.style.transform = "translateY(-50%)";
-                        cuadroBl.style.width = "90%";
-
+                        cuadroBl.style.width = "100%";
+                        zocaloProduccion.style.display = "block";
+                        zocaloProduccion.style.fontSize = "6em";
                     }
 
                     console.log('ahora:' + currentMs + 'start-15min:' + (startMs - 5*60*1000)); 
@@ -351,15 +323,12 @@ function primerEvento(){
           // cuadroBl.style.border = "solid #0094C9";
           // cuadroBl.style.borderWidth = "0 10px 0 0";
           cuadroBl.style.background = "#FCFEFF"; //blue
-          cuadroBl.style.position = "absolute";
-          cuadroBl.style.left = "initial";
-          cuadroBl.style.transform = "initial";
-          cuadroBl.style.top = "30%";
-          cuadroBl.style.transform = "initial";
+          cuadroBl.style.width = "70%";
           initializeClock('clockdiv', endDate);
           console.log('nuevo evento ' + contEventos);
           contEventos = contEventos + 1;
           eventoIndex = i;
+          zocaloProduccion.style.display = "none";
           break;
           
       } else if(currentMs > (inicioDesayuno1 - 5*60*1000) && currentMs < inicioDesayuno1 && diaHabilitado[i][dia] == 1) {
@@ -368,23 +337,17 @@ function primerEvento(){
           cuadroBr.style.display = "none";
           cuadroBl.style.display = "none";
           cuadroTr.style.display = "block"; //TODO
-          cuadroTr.style.top = "20%"; //TODO
-          cuadroTr.style.left = "0%";
-          cuadroTr.style.bottom = "0%";
-          cuadroTr.style.marginRight = "-50%";
           cuadroTr.style.border = "0px solid black";
           cuadroTr.style.margin = " 0 auto 0 auto";
           horarioPrincipal.style.fontSize = "24em";
           // ampm.style.fontSize = ".5em";
-          segundos.style.fontSize = "6em";
+          segundos.style.fontSize = "3em";
           cuadroTr.style.width = "100%";
           relojPrincipal.style.width = "100%";
           relojPrincipal.style.maxWidth = "3500px";
           relojWidget.style.width = "100%";
           relojFecha.style.fontSize = "6em";
           nombreEvento.style.display = "none";
-          zocaloProduccion.style.display = "block";
-          zocaloProduccion.style.fontSize = "6em";          
           break;
 
       } else if(currentMs > (inicioAlmuerzo1 - 5*60*1000) && currentMs < inicioAlmuerzo1 && diaHabilitado[i][dia] == 1) {
@@ -393,10 +356,6 @@ function primerEvento(){
           cuadroBr.style.display = "none";
           cuadroBl.style.display = "none";
           cuadroTr.style.display = "block"; //TODO
-          cuadroTr.style.top = "20%"; //TODO
-          cuadroTr.style.left = "0%";
-          cuadroTr.style.bottom = "0%";
-          cuadroTr.style.marginRight = "-50%";
           cuadroTr.style.border = "0px solid black";
           cuadroTr.style.margin = " 0 auto 0 auto";
           horarioPrincipal.style.fontSize = "24em";
@@ -408,8 +367,6 @@ function primerEvento(){
           relojWidget.style.width = "100%";
           relojFecha.style.fontSize = "6em";
           nombreEvento.style.display = "none";
-          zocaloProduccion.style.display = "block";
-          zocaloProduccion.style.fontSize = "6em";
           break;
       } else {
           cuadroTl.style.display = "none";
@@ -418,11 +375,9 @@ function primerEvento(){
           cuadroBl.style.display = "block";
           cuadroBl.style.border = "0px solid black";
           cuadroBl.style.background = "#FCFEFF"; //blue
-          cuadroBl.style.position = "relative";
-          cuadroBl.style.left = "0%";
-          cuadroBl.style.transform = "translateX(-50%)";
-          cuadroBl.style.top = "50%";
-          cuadroBl.style.transform = "translateY(-50%)";          
+          cuadroBl.style.width = "100%";
+          zocaloProduccion.style.display = "block";
+          zocaloProduccion.style.fontSize = "6em";           
       }
     }  
 

@@ -15,97 +15,87 @@
 	</head>
 
 	<body>
+		<div class="main" id="main">
 
-	  	<div class="tl clear" id="tl">
- 	  		<img src="img/logo-sinmargen.jpg" class="logoMy" id="fotoLogo">
-                 	<!--?php
-					$PHPvariable = "<script> document.write(schedule) </script>";
-					echo "PHPvariable = ".$PHPvariable;
-					?--> 
-	  	</div>
-		<div class="tr clear" id="tr">
-			<div class="contenedor" id="relojPrincipal">
-				<div class="widget" id="widget">
-					<div class="fecha" id="relojFecha">
-				    	<p id="diaSemana" class="diaSemana"></p>
-				      	<p id="dia" class="dia"></p>
-				      	<p>de</p>
-				      	<p id="mes" class="mes"></p>
-				      	<p>del</p>
-				      	<p id="anio" class="anio"></p>
-				    </div>
-				    <div class="reloj" id="horarioPrincipal">
-				      	<p id="horas" class="horas"></p>
-				      	<p>:</p>
-				      	<p id="minutos" class="minutos"></p>
-				      	<p>:</p>
-				      	<div class="cajaSegundos" id="cajaSegundos">
-				        	<!--span id="ampm" class="ampm"></span-->
-				        	<p id="segundos" class="segundos"></p>
-				      	</div>
-				    </div>
-				    <span class="reloj" id="nombreEvento">Nombre del Evento </span>
+		  	<div class="tl clear" id="tl">
+	 	  		<img src="img/logo-sinmargen.jpg" class="logoMy" id="fotoLogo">
+	                 	<!--?php
+						$PHPvariable = "<script> document.write(schedule) </script>";
+						echo "PHPvariable = ".$PHPvariable;
+						?--> 
+		  	</div>
+			<div class="tr clear" id="tr">
+				<div class="contenedor" id="relojPrincipal">
+					<div class="widget" id="widget">
+						<div class="fecha" id="relojFecha">
+					    	<p id="diaSemana" class="diaSemana"></p>
+					      	<p id="dia" class="dia"></p>
+					      	<p>de</p>
+					      	<p id="mes" class="mes"></p>
+					      	<p>del</p>
+					      	<p id="anio" class="anio"></p>
+					    </div>
+					    <div class="reloj" id="horarioPrincipal">
+					      	<p id="horas" class="horas"></p>
+					      	<p>:</p>
+					      	<p id="minutos" class="minutos"></p>
+					      	<p>:</p>
+					      	<div class="cajaSegundos" id="cajaSegundos">
+					        	<!--span id="ampm" class="ampm"></span-->
+					        	<p id="segundos" class="segundos"></p>
+					      	</div>
+					    </div>
+					    <span class="reloj" id="nombreEvento">Nombre del Evento </span>
+					</div>
+
 				</div>
+			</div>
+			<div class="bl clear" id="bl">
+				<div class="zocaloProduccion" id="zocaloProduccion"> En Produción</div>
 
+				<!-- Slideshow container -->
+				<div class="slideshow-container" id="slides">
+
+				  <div class="mySlides fade">
+
+				    <img src="img/slide00.jpg" style="width:100%; margin-top: 2%;">
+
+				  </div>
+
+				  <div class="mySlides fade">
+
+				    <img src="img/slide01.jpg" style="width:100%; margin-top: 2%;">
+
+				  </div>
+
+				  <div class="mySlides fade">
+
+				    <img src="img/slide02.jpg" style="width:100%; margin-top: 2%;">
+
+				  </div>
+
+	  			  <div class="mySlides fade">
+
+				    <img src="img/slide03.jpg" style="width:100%; margin-top: 2%;">
+
+				  </div>
+
+	  			  <div class="mySlides fade">
+
+				    <img src="img/slide04.jpg" style="width:100%; margin-top: 2%;">
+
+				  </div>
+
+				</div>
+			</div>
+			<div class="br" id="cuadrobr" >
+				<div id="clockdiv">
+				    <span id="minuto" class="minutes">0</span>
+				    <span class="smalltext"> min</span>
+
+				</div>
 			</div>
 		</div>
-		<div class="bl clear" id="bl">
-			<div class="zocaloProduccion" id="zocaloProduccion"> En Produción</div>
-
-			<!-- Slideshow container -->
-			<div class="slideshow-container" id="slides">
-
-			  <div class="mySlides fade">
-
-			    <img src="img/slide00.jpg" style="width:100%; margin-top: 2%;">
-
-			  </div>
-
-			  <div class="mySlides fade">
-
-			    <img src="img/slide01.jpg" style="width:100%; margin-top: 2%;">
-
-			  </div>
-
-			  <div class="mySlides fade">
-
-			    <img src="img/slide02.jpg" style="width:100%; margin-top: 2%;">
-
-			  </div>
-
-  			  <div class="mySlides fade">
-
-			    <img src="img/slide03.jpg" style="width:100%; margin-top: 2%;">
-
-			  </div>
-
-  			  <div class="mySlides fade">
-
-			    <img src="img/slide04.jpg" style="width:100%; margin-top: 2%;">
-
-			  </div>
-
-			</div>
-		</div>
-		<div class="br" id="cuadrobr" >
-			<div id="clockdiv">
-			    <span id="minuto" class="minutes">0</span>
-			    <span class="smalltext"> min</span>
-
-			</div>
-		</div>
- 		<!--div class="widget" id="relojGrande">
-			<div class="reloj">
-		      	<p id="horas" class="horas"></p>
-		      	<p>:</p>
-		      	<p id="minutos" class="minutos"></p>
-		      	<p>:</p>
-		      	<div class="cajaSegundos">
-		        	<p id="ampm" class="ampm"></p>
-		        	<p id="segundos" class="segundos"></p>
-		      	</div>
-		    </div>
-		</div-->
 			
 		<script type="text/javascript"> //con este script traigo la variable con los eventos de la DB desde PHP(web.php) al scope del JavaScript 
 		    var eventosDb = {!! json_encode($eventosDb->toArray()) !!};
