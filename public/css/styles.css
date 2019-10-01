@@ -12,6 +12,10 @@ body {
   font-size: 62.5%;
   color: #fff;
 }
+
+.main {
+  display: flex;
+}
 .contenedor {
   width: 90%;
   height: 10%;
