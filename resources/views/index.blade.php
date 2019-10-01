@@ -58,31 +58,31 @@
 
 				  <div class="mySlides fade">
 
-				    <img src="img/slide00.jpg" style="width:100%; margin-top: 2%;">
+				    <img src="img/slide00.jpg" style="width:85%; margin: 0% auto 0% auto;">
 
 				  </div>
 
 				  <div class="mySlides fade">
 
-				    <img src="img/slide01.jpg" style="width:100%; margin-top: 2%;">
+				    <img src="img/slide01.jpg" style="width:85%; margin: 0% auto 0% auto;">
 
 				  </div>
 
 				  <div class="mySlides fade">
 
-				    <img src="img/slide02.jpg" style="width:100%; margin-top: 2%;">
+				    <img src="img/slide02.jpg" style="width:85%; margin: 2% auto 2% auto;">
 
 				  </div>
 
 	  			  <div class="mySlides fade">
 
-				    <img src="img/slide03.jpg" style="width:100%; margin-top: 2%;">
+				    <img src="img/slide03.jpg" style="width:85%; margin: 2% auto 2% auto;">
 
 				  </div>
 
 	  			  <div class="mySlides fade">
 
-				    <img src="img/slide04.jpg" style="width:100%; margin-top: 2%;">
+				    <img src="img/slide04.jpg" style="width:85%; margin: 0% auto 0% auto;">
 
 				  </div>
 
